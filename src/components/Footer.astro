@@ -8,16 +8,23 @@ const nav = [
   { href: "#over", label: "Over " + settings.business.shortName },
   { href: "#contact", label: "Contact" },
 ];
+const hasLogo = Boolean(settings.business.logo);
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="./" class="logo">
-        <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
-        <span class="logo-wordmark">
-          <span class="logo-name">{settings.business.shortName}</span>
-          <span class="logo-tag">{settings.business.name.replace(settings.business.shortName, "").trim()}</span>
-        </span>
+      <a href="./" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name}>
+        {hasLogo ? (
+          <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
+        ) : (
+          <>
+            <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
+            <span class="logo-wordmark">
+              <span class="logo-name">{settings.business.shortName}</span>
+              <span class="logo-tag">{settings.business.name.replace(settings.business.shortName, "").trim()}</span>
+            </span>
+          </>
+        )}
       </a>
       <p>
         {settings.business.description}<br />

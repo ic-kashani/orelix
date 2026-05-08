@@ -7,6 +7,8 @@
   "business": {
     "name": "Merati Tegelwerken",
     "shortName": "Merati",
+    "logo": "/uploads/logo.png",
+    "logoAlt": "Merati Tegelwerken logo",
     "tagline": "Vakmanschap dat blijft",
     "description": "Tijdloze tegelwerken voor badkamers, keukens en vloeren in heel Belgie. Behrouz Merati - opgeleid in de Perzische ambachtelijke traditie.",
     "founder": "Behrouz Merati",
