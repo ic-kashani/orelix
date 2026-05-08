@@ -5,9 +5,9 @@
    - hieronder enkel de niet-thembare variabelen
    ---------------------------------------------------------------- */
 :root {
-  --color-line: rgba(28, 27, 24, 0.12);
-  --color-line-soft: rgba(28, 27, 24, 0.06);
-  --color-dark-soft: #2a2925;
+  --color-line: rgba(10, 31, 68, 0.12);
+  --color-line-soft: rgba(10, 31, 68, 0.06);
+  --color-dark-soft: #112751;
   --container: 1240px;
   --radius: 4px;
   --transition: 280ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -195,16 +195,16 @@ h2.display { font-size: clamp(2rem, 4.2vw, 3.4rem); margin-bottom: 1rem; }
   min-height: 92vh;
   display: flex;
   align-items: center;
-  color: #f7f3ed;
+  color: #ffffff;
   isolation: isolate;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse at 25% 20%, rgba(184, 137, 90, 0.20), transparent 55%),
-    radial-gradient(ellipse at 75% 85%, rgba(184, 137, 90, 0.10), transparent 60%),
-    linear-gradient(180deg, #1c1b18 0%, #22201c 100%);
+    radial-gradient(ellipse at 25% 20%, rgba(200, 16, 46, 0.22), transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(200, 16, 46, 0.10), transparent 60%),
+    linear-gradient(180deg, #0a1f44 0%, #112751 100%);
 }
 .hero-bg::before {
   content: "";
@@ -422,7 +422,7 @@ h2.display { font-size: clamp(2rem, 4.2vw, 3.4rem); margin-bottom: 1rem; }
   overflow: hidden;
   border-radius: 2px;
   background: var(--color-ink);
-  box-shadow: 0 30px 60px -30px rgba(28, 27, 24, 0.35);
+  box-shadow: 0 30px 60px -30px rgba(10, 31, 68, 0.35);
 }
 .about-portrait-frame::after {
   content: "";
@@ -620,7 +620,7 @@ a.ci-value:hover { color: var(--color-accent); }
 
 /* FOOTER */
 .site-footer {
-  background: #14130f;
+  background: #061634;
   color: rgba(247,243,237,0.7);
   padding: 5rem 0 2rem;
   font-size: 0.92rem;

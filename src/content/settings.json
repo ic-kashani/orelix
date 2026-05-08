@@ -29,14 +29,14 @@
     "facebook": "https://www.facebook.com/p/Merati-Tegelwerken-100095099767778/"
   },
   "theme": {
-    "colorBg": "#f7f3ed",
-    "colorBgAlt": "#efe9df",
-    "colorInk": "#1c1b18",
-    "colorInkSoft": "#4a4842",
-    "colorInkMuted": "#7a7770",
-    "colorAccent": "#b8895a",
-    "colorAccentDeep": "#8a6440",
-    "colorDark": "#1c1b18",
+    "colorBg": "#ffffff",
+    "colorBgAlt": "#f3f5f9",
+    "colorInk": "#0a1f44",
+    "colorInkSoft": "#2a3f6c",
+    "colorInkMuted": "#6b7a99",
+    "colorAccent": "#c8102e",
+    "colorAccentDeep": "#8b0a1e",
+    "colorDark": "#0a1f44",
     "fontDisplay": "Cormorant Garamond",
     "fontBody": "Inter"
   },
