@@ -1,0 +1,77 @@
+{
+  "site": {
+    "url": "https://meratitegelwerken.be",
+    "lang": "nl-BE",
+    "ogLocale": "nl_BE"
+  },
+  "business": {
+    "name": "Merati Tegelwerken",
+    "shortName": "Merati",
+    "tagline": "Vakmanschap dat blijft",
+    "description": "Tijdloze tegelwerken voor badkamers, keukens en vloeren in heel Belgie. Behrouz Merati - opgeleid in de Perzische ambachtelijke traditie.",
+    "founder": "Behrouz Merati",
+    "yearsExperience": 15,
+    "kbo": "1019.132.082",
+    "btw": "BE1019.132.082",
+    "foundedYear": 2023
+  },
+  "contact": {
+    "email": "sinakashani1996@gmail.com",
+    "phone": "+32485222233",
+    "phoneDisplay": "0485 22 22 33",
+    "address": "Eikestraat 13, 2480 Dessel",
+    "hours": "Ma - Za / 08:00 - 18:00",
+    "workArea": "Heel Belgie"
+  },
+  "social": {
+    "youtube": "https://www.youtube.com/@Meratitegelwerken",
+    "tiktok": "https://www.tiktok.com/@meratitegelwerkeen",
+    "facebook": "https://www.facebook.com/p/Merati-Tegelwerken-100095099767778/"
+  },
+  "theme": {
+    "colorBg": "#f7f3ed",
+    "colorBgAlt": "#efe9df",
+    "colorInk": "#1c1b18",
+    "colorInkSoft": "#4a4842",
+    "colorInkMuted": "#7a7770",
+    "colorAccent": "#b8895a",
+    "colorAccentDeep": "#8a6440",
+    "colorDark": "#1c1b18",
+    "fontDisplay": "Cormorant Garamond",
+    "fontBody": "Inter"
+  },
+  "forms": {
+    "web3formsKey": "d38cd945-fa1f-4a9c-93e2-98cc104df0c2",
+    "fallbackEmail": "sinakashani1996@gmail.com"
+  },
+  "hero": {
+    "eyebrow": "Tegelzetter / Dessel & heel Belgie",
+    "titleLine1": "Vakmanschap dat",
+    "titleEmphasis": "blijft.",
+    "lead": "Tijdloze tegelwerken voor badkamers, keukens en vloeren - met de precisie van een Perzische ambachtsman en de zuiverheid die u bij elk voegje terugziet.",
+    "stats": [
+      { "value": "15+", "label": "Jaar ervaring" },
+      { "value": "100%", "label": "Maatwerk" },
+      { "value": "Heel", "label": "Belgie" }
+    ]
+  },
+  "about": {
+    "eyebrow": "Over Behrouz Merati",
+    "titleLine1": "Een ambacht uit",
+    "titleEmphasis": "Iran,",
+    "titleLine2": "gerijpt in Belgie.",
+    "portrait": "/uploads/behrouz-merati.jpg",
+    "portraitAlt": "Behrouz Merati, oprichter van Merati Tegelwerken",
+    "paragraphs": [
+      "Mijn naam is **Behrouz Merati**. Ik ben opgegroeid in Iran, waar ik het tegelvak heb geleerd op de *Perzische manier* - een traditie waarin elk voegje, elke verspringing en elke aansluiting wordt behandeld als detail dat telt. Geen snelle oplossingen, maar werk dat decennia mooi blijft.",
+      "Sinds vele jaren ben ik actief in Belgie, waar ik die ambacht heb verfijnd met de hedendaagse materialen en strakke afwerkingen die u vandaag verwacht: grootformaat tegels, natuursteen, mozaiek, inloopdouches en designvloeren. Wat hetzelfde is gebleven: de overtuiging dat een tegel *recht* moet liggen, de voeg gelijk moet lopen, en het oog van de meester het laatste oordeel velt.",
+      "Ik werk persoonlijk - van eerste opmeting tot oplevering. Geen tussenpartijen, geen verrassingen, gewoon vakwerk afgeleverd zoals afgesproken."
+    ],
+    "points": [
+      { "strong": "15+ jaar ervaring", "rest": "tussen Iran en Belgie." },
+      { "strong": "Perfectionisme", "rest": "als standaard, niet als optie." },
+      { "strong": "Persoonlijk contact", "rest": "van offerte tot oplevering." },
+      { "strong": "Heel Belgie", "rest": "- Vlaanderen, Brussel & Wallonie." }
+    ]
+  }
+}

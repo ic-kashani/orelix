@@ -1,0 +1,44 @@
+---
+import settings from "../content/settings.json";
+const successUrl = `${settings.site.url}/?sent=1`;
+---
+<form class="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST">
+  <input type="hidden" name="access_key" value={settings.forms.web3formsKey} />
+  <input type="hidden" name="subject" value={`Nieuwe aanvraag - ${settings.business.name}`} />
+  <input type="hidden" name="redirect" value={successUrl} />
+  <input type="hidden" name="from_name" value={settings.business.name} />
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <div class="field">
+    <label for="name">Naam</label>
+    <input id="name" name="Naam" type="text" autocomplete="name" required />
+  </div>
+  <div class="field">
+    <label for="email">E-mail</label>
+    <input id="email" name="E-mail" type="email" autocomplete="email" required />
+  </div>
+  <div class="field">
+    <label for="phone">Telefoon</label>
+    <input id="phone" name="Telefoon" type="tel" autocomplete="tel" />
+  </div>
+  <div class="field">
+    <label for="project">Soort project</label>
+    <select id="project" name="Soort project">
+      <option value="">Maak een keuze</option>
+      <option>Badkamer</option>
+      <option>Keuken</option>
+      <option>Vloer</option>
+      <option>Terras / buiten</option>
+      <option>Renovatie</option>
+      <option>Anders</option>
+    </select>
+  </div>
+  <div class="field field-full">
+    <label for="message">Beschrijf kort uw project</label>
+    <textarea id="message" name="Bericht" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg">Verstuur aanvraag</button>
+  <p class="form-note">Uw aanvraag wordt rechtstreeks naar onze mailbox verstuurd.</p>
+</form>

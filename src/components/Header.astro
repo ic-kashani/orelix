@@ -1,0 +1,30 @@
+---
+import settings from "../content/settings.json";
+const nav = [
+  { href: "#diensten", label: "Diensten" },
+  { href: "#realisaties", label: "Realisaties" },
+  { href: "#over", label: "Over " + settings.business.shortName },
+  { href: "#contact", label: "Contact" },
+];
+---
+<header class="site-header" id="top">
+  <div class="container nav">
+    <a href="./" class="logo" aria-label={settings.business.name + " - homepagina herladen"}>
+      <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
+      <span class="logo-wordmark">
+        <span class="logo-name">{settings.business.shortName}</span>
+        <span class="logo-tag">{settings.business.name.replace(settings.business.shortName, "").trim()}</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Hoofdnavigatie">
+      {nav.map(item => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <a href="#contact" class="btn btn-primary nav-cta">Offerte aanvragen</a>
+
+    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

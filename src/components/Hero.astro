@@ -1,0 +1,22 @@
+---
+import settings from "../content/settings.json";
+const h = settings.hero;
+---
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow eyebrow-light">{h.eyebrow}</span>
+    <h1 class="display">{h.titleLine1} <em>{h.titleEmphasis}</em></h1>
+    <p class="hero-lead">{h.lead}</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary btn-lg">Vraag uw offerte aan</a>
+      <a href="#realisaties" class="btn btn-ghost btn-lg">Bekijk realisaties</a>
+    </div>
+    <div class="hero-meta" aria-label="Onze cijfers">
+      {h.stats.map(s => (
+        <div><strong>{s.value}</strong><span>{s.label}</span></div>
+      ))}
+    </div>
+  </div>
+  <a class="hero-scroll" href="#diensten" aria-label="Scroll naar onder"><span></span></a>
+</section>

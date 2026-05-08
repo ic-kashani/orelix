@@ -1,0 +1,35 @@
+---
+import settings from "../content/settings.json";
+const a = settings.about;
+
+// Lichte inline-markdown: **bold** en *italic*. Genoeg voor de bio-paragrafen.
+const renderInline = (s: string) =>
+  s
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+---
+<section id="over" class="section about">
+  <div class="container about-grid">
+    <div class="about-portrait">
+      <div class="about-portrait-frame">
+        <img src={a.portrait} alt={a.portraitAlt} loading="lazy" decoding="async" />
+      </div>
+      <div class="about-portrait-caption">
+        <span class="signature">{settings.business.founder}</span>
+        <span class="about-stamp">Oprichter / Tegelzetter</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">{a.eyebrow}</span>
+      <h2 class="display">
+        {a.titleLine1} <em>{a.titleEmphasis}</em> {a.titleLine2}
+      </h2>
+      {a.paragraphs.map(p => <p set:html={renderInline(p)} />)}
+      <ul class="about-points">
+        {a.points.map(pt => (
+          <li><strong>{pt.strong}</strong> {pt.rest}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+const items = (await getCollection("services")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+<section id="diensten" class="section services">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">Diensten</span>
+      <h2 class="display">Elk project, met dezelfde precisie.</h2>
+      <p class="section-lead">
+        Van een nieuwe badkamer tot een volledige renovatie - wij leveren strak,
+        tijdloos werk dat decennia meegaat.
+      </p>
+    </header>
+
+    <div class="services-grid">
+      {items.map(async (item) => {
+        const { Content } = await item.render();
+        return (
+          <article class="service-card">
+            <span class="service-num">{item.data.number}</span>
+            <h3>{item.data.title}</h3>
+            <div class="service-body">
+              <Content />
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>

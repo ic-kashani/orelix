@@ -1,0 +1,57 @@
+---
+import settings from "../content/settings.json";
+const c = settings.contact;
+const phoneHref = c.phone.replace(/\s+/g, "");
+const nav = [
+  { href: "#diensten", label: "Diensten" },
+  { href: "#realisaties", label: "Realisaties" },
+  { href: "#over", label: "Over " + settings.business.shortName },
+  { href: "#contact", label: "Contact" },
+];
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="./" class="logo">
+        <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
+        <span class="logo-wordmark">
+          <span class="logo-name">{settings.business.shortName}</span>
+          <span class="logo-tag">{settings.business.name.replace(settings.business.shortName, "").trim()}</span>
+        </span>
+      </a>
+      <p>
+        {settings.business.description}<br />
+        {c.address}
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigatie</h4>
+      <ul>
+        {nav.map(n => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Volg ons</h4>
+      <ul>
+        {settings.social.youtube && <li><a href={settings.social.youtube} target="_blank" rel="noopener">YouTube</a></li>}
+        {settings.social.tiktok && <li><a href={settings.social.tiktok} target="_blank" rel="noopener">TikTok</a></li>}
+        {settings.social.facebook && <li><a href={settings.social.facebook} target="_blank" rel="noopener">Facebook</a></li>}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href={`tel:${phoneHref}`}>{c.phoneDisplay}</a></li>
+        <li><a href={`mailto:${c.email}`}>{c.email}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>&copy; <span id="year">2026</span> {settings.business.name} - Alle rechten voorbehouden.</span>
+    <span class="footer-meta">KBO {settings.business.kbo} - BTW {settings.business.btw}</span>
+  </div>
+</footer>

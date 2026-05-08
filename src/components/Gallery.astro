@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import settings from "../content/settings.json";
+const items = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const giClasses = ["gi-1", "gi-2", "gi-3", "gi-4", "gi-5", "gi-6"];
+---
+<section id="realisaties" class="section portfolio">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow">Realisaties</span>
+      <h2 class="display">Ons werk spreekt voor zich.</h2>
+      <p class="section-lead">Een selectie van moderne tegelwerken: badkamers, vloeren en buitenruimten.</p>
+    </header>
+
+    <div class="gallery">
+      {items.map((item, idx) => (
+        <figure class={`gallery-item ${giClasses[idx % giClasses.length]}`}>
+          <img src={item.data.image} alt={item.data.alt} loading="lazy" decoding="async" />
+          <figcaption>
+            <span class="cap-cat">{item.data.category}</span>
+            <span class="cap-loc">{item.data.location}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="portfolio-cta">
+      <p>Meer realisaties op onze sociale kanalen</p>
+      <div class="social-row">
+        {settings.social.youtube && (
+          <a href={settings.social.youtube} target="_blank" rel="noopener" class="social-pill">
+            <span class="social-icon-mark" aria-hidden="true">YT</span>
+            <span>YouTube</span>
+          </a>
+        )}
+        {settings.social.tiktok && (
+          <a href={settings.social.tiktok} target="_blank" rel="noopener" class="social-pill">
+            <span class="social-icon-mark" aria-hidden="true">TT</span>
+            <span>TikTok</span>
+          </a>
+        )}
+        {settings.social.facebook && (
+          <a href={settings.social.facebook} target="_blank" rel="noopener" class="social-pill">
+            <span class="social-icon-mark" aria-hidden="true">f</span>
+            <span>Facebook</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
