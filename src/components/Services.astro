@@ -20,10 +20,23 @@ const items = (await getCollection("services")).sort(
         const { Content } = await item.render();
         return (
           <article class="service-card">
-            <span class="service-num">{item.data.number}</span>
-            <h3>{item.data.title}</h3>
-            <div class="service-body">
-              <Content />
+            <div class="service-card-visual">
+              <img
+                src={item.data.image}
+                alt={item.data.imageAlt}
+                class="service-card-img"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="520"
+              />
+              <div class="service-card-scrim" aria-hidden="true" />
+            </div>
+            <div class="service-card-panel">
+              <h3>{item.data.title}</h3>
+              <div class="service-body">
+                <Content />
+              </div>
             </div>
           </article>
         );
