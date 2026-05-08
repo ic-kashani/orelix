@@ -13,6 +13,9 @@ const pageTitle = title
   : `${settings.business.name} - ${settings.business.tagline}`;
 const pageDescription = description ?? settings.business.description;
 const t = settings.theme;
+const siteUrl = (
+  import.meta.env.PUBLIC_SITE_URL?.trim() || settings.site.url
+).replace(/\/$/, "");
 ---
 <!DOCTYPE html>
 <html lang={settings.site.lang}>
@@ -33,7 +36,7 @@ const t = settings.theme;
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={settings.site.ogLocale} />
-    <meta property="og:url" content={settings.site.url} />
+    <meta property="og:url" content={siteUrl} />
 
     <title>{pageTitle}</title>
 

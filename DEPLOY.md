@@ -34,12 +34,16 @@
    | Build output directory | `dist` |
    | Root directory | `/` (default) |
 
-4. Environment variables (optional):
+4. Environment variables (aanbevolen):
 
-   - `PUBLIC_SITE_URL` = `https://<your-pages-subdomain>.pages.dev` (later vervangen door `https://meratitegelwerken.be` wanneer het domein live is)
+   - `PUBLIC_SITE_URL` = de **exacte** publieke URL van deze deploy (inclusief `https://`), bv. `https://merati-site.kashaibv.workers.dev` of `https://merati-site.pages.dev`.
 
-5. Deploy. De eerste URL is iets als `merati-site.pages.dev`.
+   Dit overschrijft `site.url` in `settings.json` bij build-time voor `og:url` en voor de Web3Forms redirect (`/?sent=1`). Zonder deze variabele wordt `src/content/settings.json` gebruikt.
+
+5. Deploy. Cloudflare kan een URL geven op **`*.workers.dev`** (Workers) of **`*.pages.dev`** (Pages) — beide zijn geldig.
 
 ## Custom domain (later)
 
-Wanneer `meratitegelwerken.be` bij jouw registrar staat: **Pages project** → **Custom domains** → voeg domein toe en volg DNS-instructies (meestal CNAME naar `*.pages.dev`).
+Wanneer `meratitegelwerken.be` bij jouw registrar staat: in het Cloudflare-project → **Custom domains** → domein toevoegen. Zet daarna **`PUBLIC_SITE_URL`** op `https://meratitegelwerken.be` en deploy opnieuw (of werk `site.url` in `settings.json` bij en push).
+
+Update ook **`site.url`** in `src/content/settings.json` als je geen build-time env gebruikt, zodat het contactformulier na verzenden terugstuurt naar het juiste domein.

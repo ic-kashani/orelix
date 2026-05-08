@@ -1,6 +1,9 @@
 ---
 import settings from "../content/settings.json";
-const successUrl = `${settings.site.url}/?sent=1`;
+const siteUrl = (
+  import.meta.env.PUBLIC_SITE_URL?.trim() || settings.site.url
+).replace(/\/$/, "");
+const successUrl = `${siteUrl}/?sent=1`;
 ---
 <form class="contact-form"
       action="https://api.web3forms.com/submit"
