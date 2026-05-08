@@ -1,9 +1,9 @@
 ---
-title: Inloopdouche
-category: Inloopdouche
+title: Laminaatvloer
+category: Laminaatvloer
 location: Hasselt
-image: /uploads/badkamer.jpg
-alt: Inloopdouche met fijn betegeld interieur
+image: /uploads/laminaat.jpg
+alt: Netjes overal laminaat
 order: 4
 gridLayout: tall
 ---
