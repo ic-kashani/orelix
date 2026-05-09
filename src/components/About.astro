@@ -9,27 +9,36 @@ const renderInline = (s: string) =>
     .replace(/\*(.+?)\*/g, "<em>$1</em>");
 ---
 <section id="over" class="section about">
-  <div class="container about-grid">
-    <div class="about-portrait">
-      <div class="about-portrait-frame">
-        <img src={a.portrait} alt={a.portraitAlt} loading="lazy" decoding="async" />
+  <div class="container">
+    <header class="section-head-split section-head-split--single">
+      <div class="section-head-intro">
+        <span class="eyebrow">{a.eyebrow}</span>
+        <h2 class="display">
+          {a.titleLine1} <em>{a.titleEmphasis}</em> {a.titleLine2}
+        </h2>
       </div>
-      <div class="about-portrait-caption">
-        <span class="signature">{settings.business.founder}</span>
-        <span class="about-stamp">Oprichter / Tegelzetter</span>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-portrait">
+        <div class="about-portrait-frame">
+          <img src={a.portrait} alt={a.portraitAlt} loading="lazy" decoding="async" />
+        </div>
+        <div class="about-portrait-caption">
+          <span class="signature">{settings.business.founder}</span>
+          <span class="about-stamp">Oprichter / Tegelzetter</span>
+        </div>
       </div>
-    </div>
-    <div class="about-text">
-      <span class="eyebrow">{a.eyebrow}</span>
-      <h2 class="display">
-        {a.titleLine1} <em>{a.titleEmphasis}</em> {a.titleLine2}
-      </h2>
-      {a.paragraphs.map(p => <p set:html={renderInline(p)} />)}
-      <ul class="about-points">
-        {a.points.map(pt => (
-          <li><strong>{pt.strong}</strong> {pt.rest}</li>
-        ))}
-      </ul>
+      <div class="about-text">
+        {a.paragraphs.map((p) => <p set:html={renderInline(p)} />)}
+        <ul class="about-points">
+          {a.points.map((pt) => (
+            <li>
+              <strong>{pt.strong}</strong> {pt.rest}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </div>
 </section>

@@ -2,7 +2,7 @@
 title: Vloeren
 order: 3
 image: /uploads/vloer.jpg
-imageAlt: Gelegde vloertegels in grootformaat
+imageAlt: Strak gelegde vloer met tegels of parket
 ---
 
-Natuursteen, keramiek of grootformaat porselein - perfect gelegd, naadloos afgewerkt.
+Natuursteen, keramiek en grootformaat porselein - en ook laminaatvloeren, parket (massief en multiplank), vinyl of andere moderne vloerafwerking. Perfect gelegd, naadloos afgewerkt.
