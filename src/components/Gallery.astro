@@ -33,6 +33,12 @@ const items = (await getCollection("projects")).sort(
     <div class="portfolio-cta">
       <p>Meer realisaties op onze sociale kanalen</p>
       <div class="social-row">
+        {settings.social.instagram && (
+          <a href={settings.social.instagram} target="_blank" rel="noopener" class="social-pill">
+            <span class="social-icon-mark" aria-hidden="true">IG</span>
+            <span>Instagram</span>
+          </a>
+        )}
         {settings.social.youtube && (
           <a href={settings.social.youtube} target="_blank" rel="noopener" class="social-pill">
             <span class="social-icon-mark" aria-hidden="true">YT</span>

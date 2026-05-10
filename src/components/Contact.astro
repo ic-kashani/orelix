@@ -42,6 +42,11 @@ const phoneHref = c.phone.replace(/\s+/g, "");
         </ul>
 
         <div class="contact-socials" aria-label="Sociale media">
+          {settings.social.instagram && (
+            <a href={settings.social.instagram} target="_blank" rel="noopener">
+              Instagram
+            </a>
+          )}
           {settings.social.youtube && (
             <a href={settings.social.youtube} target="_blank" rel="noopener">
               YouTube

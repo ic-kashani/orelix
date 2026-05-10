@@ -21,14 +21,15 @@
     "email": "meratitegelwerken@gmail.com",
     "phone": "+32485222233",
     "phoneDisplay": "0485 22 22 33",
-    "address": "Eikestraat 13, 2480 Dessel",
+    "address": "Donk 12, 2400 Mol",
     "hours": "Ma - Za / 08:00 - 18:00",
     "workArea": "Heel Belgie"
   },
   "social": {
     "youtube": "https://www.youtube.com/@Meratitegelwerken",
     "tiktok": "https://www.tiktok.com/@meratitegelwerkeen",
-    "facebook": "https://www.facebook.com/p/Merati-Tegelwerken-100095099767778/"
+    "facebook": "https://www.facebook.com/p/Merati-Tegelwerken-100095099767778/",
+    "instagram": "https://www.instagram.com/merati_tegelwerken/"
   },
   "theme": {
     "colorBg": "#ffffff",
@@ -47,7 +48,7 @@
     "fallbackEmail": "meratitegelwerken@gmail.com"
   },
   "hero": {
-    "eyebrow": "Tegel- & vloerwerken / Dessel & heel Belgie",
+    "eyebrow": "Tegel- & vloerwerken / Mol & heel Belgie",
     "titleLine1": "Vakmanschap dat",
     "titleEmphasis": "blijft.",
     "lead": "Niet alleen tegels: ook laminaat, parket en andere vloeren strak gelegd - naast badkamers en keukens - met de precisie van een Perzische ambachtsman en de zorg die u bij elke naad en elk detail terugziet.",

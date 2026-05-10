@@ -3,17 +3,17 @@ import settings from "../content/settings.json";
 const c = settings.contact;
 const phoneHref = c.phone.replace(/\s+/g, "");
 const nav = [
-  { href: "#diensten", label: "Diensten" },
-  { href: "#realisaties", label: "Realisaties" },
-  { href: "#over", label: "Over " + settings.business.shortName },
-  { href: "#contact", label: "Contact" },
+  { href: "/#diensten", label: "Diensten" },
+  { href: "/realisaties", label: "Realisaties" },
+  { href: "/#over", label: "Over " + settings.business.shortName },
+  { href: "/#contact", label: "Contact" },
 ];
 const hasLogo = Boolean(settings.business.logo);
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="./" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name}>
+      <a href="/" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name}>
         {hasLogo ? (
           <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
         ) : (
@@ -42,6 +42,7 @@ const hasLogo = Boolean(settings.business.logo);
     <div class="footer-col">
       <h4>Volg ons</h4>
       <ul>
+        {settings.social.instagram && <li><a href={settings.social.instagram} target="_blank" rel="noopener">Instagram</a></li>}
         {settings.social.youtube && <li><a href={settings.social.youtube} target="_blank" rel="noopener">YouTube</a></li>}
         {settings.social.tiktok && <li><a href={settings.social.tiktok} target="_blank" rel="noopener">TikTok</a></li>}
         {settings.social.facebook && <li><a href={settings.social.facebook} target="_blank" rel="noopener">Facebook</a></li>}
