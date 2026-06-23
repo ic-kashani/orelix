@@ -1,0 +1,21 @@
+---
+const words = [
+  "Badkamers",
+  "Keukens",
+  "Grootformaat tegels",
+  "Natuursteen",
+  "Mozaïek",
+  "Inloopdouches",
+  "Laminaat",
+  "Parket",
+  "Terrassen",
+  "Renovatie",
+];
+// Duplicate for a seamless -50% loop.
+const loop = [...words, ...words];
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {loop.map((w) => <span>{w}</span>)}
+  </div>
+</div>

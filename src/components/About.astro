@@ -10,28 +10,32 @@ const renderInline = (s: string) =>
 ---
 <section id="over" class="section about">
   <div class="container">
-    <header class="section-head-split section-head-split--single">
-      <div class="section-head-intro">
-        <span class="eyebrow">{a.eyebrow}</span>
-        <h2 class="display">
-          {a.titleLine1} <em>{a.titleEmphasis}</em> {a.titleLine2}
-        </h2>
-      </div>
-    </header>
-
     <div class="about-grid">
-      <div class="about-portrait">
+      <div class="about-portrait" data-anim="clip">
         <div class="about-portrait-frame">
-          <img src={a.portrait} alt={a.portraitAlt} loading="lazy" decoding="async" />
+          <img
+            src={a.portrait}
+            alt={a.portraitAlt}
+            loading="lazy"
+            decoding="async"
+            data-parallax="0.08"
+          />
         </div>
         <div class="about-portrait-caption">
           <span class="signature">{settings.business.founder}</span>
           <span class="about-stamp">Oprichter / Tegelzetter</span>
         </div>
       </div>
+
       <div class="about-text">
-        {a.paragraphs.map((p) => <p set:html={renderInline(p)} />)}
-        <ul class="about-points">
+        <span class="eyebrow" data-anim="reveal">{a.eyebrow}</span>
+        <h2 class="display" data-anim="heading">
+          {a.titleLine1} <em>{a.titleEmphasis}</em> {a.titleLine2}
+        </h2>
+        {a.paragraphs.map((p) => (
+          <p set:html={renderInline(p)} data-anim="reveal" />
+        ))}
+        <ul class="about-points" data-anim="reveal">
           {a.points.map((pt) => (
             <li>
               <strong>{pt.strong}</strong> {pt.rest}

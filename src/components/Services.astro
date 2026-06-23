@@ -4,45 +4,53 @@ const items = (await getCollection("services")).sort(
   (a, b) => a.data.order - b.data.order,
 );
 ---
-<section id="diensten" class="section services">
-  <div class="container">
-    <header class="section-head-split">
-      <div class="section-head-intro">
-        <span class="eyebrow">Diensten</span>
-        <h2 class="display">Elk project, met dezelfde precisie.</h2>
-      </div>
-      <p class="section-lead section-lead--split">
+<section id="diensten" class="services" data-services>
+  <div class="services-track" data-services-track>
+    <div class="panel service-intro">
+      <span class="eyebrow">Diensten</span>
+      <h2 class="display">Elk project, dezelfde <em>precisie.</em></h2>
+      <p>
         Van tegelwerk en badkamers tot volledige renovatie en vloerafwerking -
         laminaat, parket en meer. Strak, tijdloos werk dat decennia meegaat.
       </p>
-    </header>
-
-    <div class="services-grid">
-      {items.map(async (item) => {
-        const { Content } = await item.render();
-        return (
-          <article class="service-card">
-            <div class="service-card-visual">
-              <img
-                src={item.data.image}
-                alt={item.data.imageAlt}
-                class="service-card-img"
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="520"
-              />
-              <div class="service-card-scrim" aria-hidden="true" />
-            </div>
-            <div class="service-card-panel">
-              <h3>{item.data.title}</h3>
-              <div class="service-body">
-                <Content />
-              </div>
-            </div>
-          </article>
-        );
-      })}
+      <span class="services-hint">Scroll &rarr;</span>
     </div>
+
+    {items.map(async (item, i) => {
+      const { Content } = await item.render();
+      return (
+        <article class="panel service-card" data-service-card>
+          <div class="service-card-media">
+            <img
+              src={item.data.image}
+              alt={item.data.imageAlt}
+              class="service-card-img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="1000"
+            />
+          </div>
+          <div class="service-card-content">
+            <span class="service-index">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{item.data.title}</h3>
+            <div class="service-body"><Content /></div>
+          </div>
+        </article>
+      );
+    })}
+
+    <div class="panel service-outro">
+      <span class="eyebrow">Klaar?</span>
+      <h3>Laten we uw project bespreken.</h3>
+      <p>Eén aanspreekpunt, van eerste opmeting tot nette oplevering.</p>
+      <a href="/#contact" class="btn btn-primary btn-lg" data-magnetic="0.4" data-cursor="Start">
+        Vraag uw offerte aan
+      </a>
+    </div>
+  </div>
+
+  <div class="services-progress-track" aria-hidden="true">
+    <span class="services-progress" data-services-progress></span>
   </div>
 </section>

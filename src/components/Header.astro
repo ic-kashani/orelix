@@ -12,7 +12,13 @@ const hasLogo = Boolean(settings.business.logo);
   <div class="container nav">
     <a href="/" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name + " - homepagina herladen"}>
       {hasLogo ? (
-        <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
+        <>
+          <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
+          <span class="logo-wordmark logo-wordmark--beside">
+            <span class="logo-name">{settings.business.shortName}</span>
+            <span class="logo-tag">Tegelwerken</span>
+          </span>
+        </>
       ) : (
         <>
           <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
@@ -28,7 +34,7 @@ const hasLogo = Boolean(settings.business.logo);
       {nav.map(item => <a href={item.href}>{item.label}</a>)}
     </nav>
 
-    <a href="/#contact" class="btn btn-nav-cta nav-cta">Offerte aanvragen</a>
+    <a href="/#contact" class="btn btn-nav-cta nav-cta" data-magnetic="0.3">Offerte aanvragen</a>
 
     <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false">
       <span></span><span></span><span></span>

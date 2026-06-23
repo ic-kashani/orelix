@@ -6,18 +6,16 @@ const phoneHref = c.phone.replace(/\s+/g, "");
 ---
 <section id="contact" class="section contact">
   <div class="container">
-    <header class="section-head-split section-head-split--on-dark">
-      <div class="section-head-intro">
-        <span class="eyebrow eyebrow-light">Contact</span>
-        <h2 class="display">Klaar om uw project te <em>starten?</em></h2>
-      </div>
-      <p class="section-lead section-lead--split section-lead--on-dark">
+    <header class="section-head">
+      <span class="eyebrow eyebrow-light" data-anim="reveal">Contact</span>
+      <h2 class="display" data-anim="heading">Klaar om uw project te <em>starten?</em></h2>
+      <p class="section-lead" data-anim="reveal">
         Vertel ons over uw project. We bellen u terug binnen 24u - meestal sneller.
       </p>
     </header>
 
     <div class="contact-grid">
-      <div class="contact-info">
+      <div class="contact-info" data-anim="reveal">
         <ul class="contact-list">
           <li>
             <span class="ci-label">Telefoon</span>
@@ -43,29 +41,23 @@ const phoneHref = c.phone.replace(/\s+/g, "");
 
         <div class="contact-socials" aria-label="Sociale media">
           {settings.social.instagram && (
-            <a href={settings.social.instagram} target="_blank" rel="noopener">
-              Instagram
-            </a>
+            <a href={settings.social.instagram} target="_blank" rel="noopener">Instagram</a>
           )}
           {settings.social.youtube && (
-            <a href={settings.social.youtube} target="_blank" rel="noopener">
-              YouTube
-            </a>
+            <a href={settings.social.youtube} target="_blank" rel="noopener">YouTube</a>
           )}
           {settings.social.tiktok && (
-            <a href={settings.social.tiktok} target="_blank" rel="noopener">
-              TikTok
-            </a>
+            <a href={settings.social.tiktok} target="_blank" rel="noopener">TikTok</a>
           )}
           {settings.social.facebook && (
-            <a href={settings.social.facebook} target="_blank" rel="noopener">
-              Facebook
-            </a>
+            <a href={settings.social.facebook} target="_blank" rel="noopener">Facebook</a>
           )}
         </div>
       </div>
 
-      <ContactForm />
+      <div data-anim="reveal" data-delay="0.1">
+        <ContactForm />
+      </div>
     </div>
   </div>
 </section>

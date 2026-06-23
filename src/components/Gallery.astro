@@ -4,23 +4,27 @@ import settings from "../content/settings.json";
 const items = (await getCollection("projects")).sort(
   (a, b) => a.data.order - b.data.order,
 );
+
+// Visual rhythm for the asymmetric grid. Honour an explicit gridLayout when set,
+// otherwise cycle a pleasing pattern so the masonry never feels mechanical.
+const pattern = ["large", "small", "tall", "wide", "small", "small", "tall", "small", "wide", "small", "large", "small"];
+const layoutClass = (i: number, explicit?: string) => {
+  const layout = explicit || pattern[i % pattern.length];
+  return layout === "small" ? "" : `is-${layout}`;
+};
 ---
 <section id="realisaties" class="section portfolio">
   <div class="container">
-    <header class="section-head-split">
-      <div class="section-head-intro">
-        <span class="eyebrow">Realisaties</span>
-        <h2 class="display">Ons werk spreekt voor zich.</h2>
-      </div>
-      <p class="section-lead section-lead--split">
-        Een selectie van tegel- en vloerprojecten: badkamers, keukens, laminaat en
-        parket, en buitenruimten.
-      </p>
-    </header>
-
-    <div class="gallery gallery--uniform">
-      {items.map((item) => (
-        <figure class="gallery-item">
+    <div class="gallery">
+      {items.map((item, i) => (
+        <figure
+          class={`gallery-item ${layoutClass(i, item.data.gridLayout)}`}
+          data-lightbox
+          data-lb-src={item.data.image}
+          data-lb-cat={item.data.category}
+          data-lb-loc={item.data.location}
+          data-cursor="Bekijk"
+        >
           <img src={item.data.image} alt={item.data.alt} loading="lazy" decoding="async" />
           <figcaption>
             <span class="cap-cat">{item.data.category}</span>

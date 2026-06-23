@@ -1,0 +1,37 @@
+---
+import settings from "../content/settings.json";
+
+interface Props {
+  variant?: "hero" | "pills";
+  label?: string;
+}
+
+const { variant = "pills", label } = Astro.props;
+
+const channels = [
+  { id: "instagram", label: "Instagram", mark: "IG", href: settings.social.instagram },
+  { id: "youtube", label: "YouTube", mark: "YT", href: settings.social.youtube },
+  { id: "tiktok", label: "TikTok", mark: "TT", href: settings.social.tiktok },
+  { id: "facebook", label: "Facebook", mark: "f", href: settings.social.facebook },
+].filter((c) => Boolean(c.href));
+---
+
+{channels.length > 0 && (
+  <div class={`social-links social-links--${variant}`} aria-label="Sociale media">
+    {label && <span class="social-links-label">{label}</span>}
+    <div class="social-links-row">
+      {channels.map((c) => (
+        <a
+          href={c.href}
+          class="social-pill"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor={c.label}
+        >
+          <span class="social-icon-mark" aria-hidden="true">{c.mark}</span>
+          <span>{c.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+)}

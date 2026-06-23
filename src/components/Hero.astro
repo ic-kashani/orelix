@@ -1,36 +1,65 @@
 ---
 import settings from "../content/settings.json";
+import SocialLinks from "./SocialLinks.astro";
 const h = settings.hero;
+const heroImage = "/uploads/hero-tilework.png";
+
+type Stat = { value: string; label: string };
+const stats: Stat[] = h.stats;
+const parseStat = (value: string) => {
+  const m = value.match(/^(\d+)(\D*)$/);
+  return m ? { num: m[1], suffix: m[2] } : null;
+};
 ---
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="container hero-layout">
-    <div class="hero-main">
-      <span class="eyebrow eyebrow-light">{h.eyebrow}</span>
-      <h1 class="display">{h.titleLine1} <em>{h.titleEmphasis}</em></h1>
-      <p class="hero-lead">{h.lead}</p>
-      <div class="hero-actions">
-        <a href="/#contact" class="btn btn-primary btn-lg">Vraag uw offerte aan</a>
-        <a href="/realisaties" class="btn btn-ghost btn-lg">Bekijk realisaties</a>
-      </div>
-      <div class="hero-meta hero-meta--compact" aria-label="Onze cijfers">
-        {h.stats.map((s) => (
-          <div>
-            <strong>{s.value}</strong>
-            <span>{s.label}</span>
-          </div>
-        ))}
-      </div>
+<section class="hero" data-hero>
+  <div
+    class="hero-canvas"
+    data-hero-canvas
+    data-hero-src={heroImage}
+    style={`--hero-img: url('${heroImage}')`}
+    aria-hidden="true"
+  ></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <div data-hero-stagger>
+      <SocialLinks variant="hero" label="Volg ons online" />
     </div>
-    <aside class="hero-aside" aria-label="In het kort">
-      <div class="hero-aside-inner">
-        {h.stats.map((s) => (
-          <div class="hero-stat-card">
-            <strong>{s.value}</strong>
+
+    <span class="eyebrow eyebrow-light hero-eyebrow" data-hero-stagger>
+      <span class="hero-eyebrow-full">{h.eyebrow}</span>
+      <span class="hero-eyebrow-short">Tegelwerk · Mol &amp; België</span>
+    </span>
+    <h1 class="hero-title display" data-hero-title>
+      {h.titleLine1} <em>{h.titleEmphasis}</em>
+    </h1>
+    <p class="hero-lead" data-hero-stagger>{h.lead}</p>
+
+    <div class="hero-actions" data-hero-stagger>
+      <a href="/#contact" class="btn btn-primary btn-lg" data-magnetic="0.4" data-cursor="Offerte">
+        Vraag uw offerte aan
+      </a>
+      <a href="/realisaties" class="btn btn-ghost btn-lg" data-magnetic="0.4">
+        Bekijk realisaties
+      </a>
+    </div>
+
+    <div class="hero-stats" data-hero-stagger aria-label="Onze cijfers">
+      {stats.map((s) => {
+        const p = parseStat(s.value);
+        return (
+          <div class="hero-stat">
+            {p ? (
+              <strong data-count={p.num} data-count-suffix={p.suffix}>0{p.suffix}</strong>
+            ) : (
+              <strong>{s.value}</strong>
+            )}
             <span>{s.label}</span>
           </div>
-        ))}
-      </div>
-    </aside>
+        );
+      })}
+    </div>
   </div>
+
+  <span class="hero-cue" data-hero-cue>Scroll</span>
 </section>

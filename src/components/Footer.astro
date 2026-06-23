@@ -15,7 +15,13 @@ const hasLogo = Boolean(settings.business.logo);
     <div class="footer-brand">
       <a href="/" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name}>
         {hasLogo ? (
-          <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
+          <>
+            <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
+            <span class="logo-wordmark logo-wordmark--beside">
+              <span class="logo-name">{settings.business.shortName}</span>
+              <span class="logo-tag">Tegelwerken</span>
+            </span>
+          </>
         ) : (
           <>
             <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
@@ -57,6 +63,8 @@ const hasLogo = Boolean(settings.business.logo);
       </ul>
     </div>
   </div>
+
+  <div class="footer-wordmark" aria-hidden="true" data-parallax="0.06">{settings.business.shortName}</div>
 
   <div class="container footer-bottom">
     <span>&copy; <span id="year">2026</span> {settings.business.name} - Alle rechten voorbehouden.</span>
