@@ -1,6 +1,6 @@
 {
   "site": {
-    "url": "https://orelix.com",
+    "url": "https://orelix.be",
     "lang": "en",
     "ogLocale": "en_US"
   },
@@ -9,15 +9,15 @@
     "shortName": "Orelix",
     "logo": "/uploads/logo.png",
     "logoAlt": "Orelix — Building Your Digital Workforce",
-    "logoTag": "AI Employees for Real Businesses",
-    "tagline": "AI Employees for Real Businesses",
+    "logoTag": "Building Your Digital Workforce",
+    "tagline": "Building Your Digital Workforce",
     "description": "Orelix builds intelligent AI employees that automate repetitive work, support your team, and integrate seamlessly with your existing business processes.",
     "foundedYear": 2025
   },
   "contact": {
-    "email": "hello@orelix.com",
-    "phone": "",
-    "phoneDisplay": "",
+    "email": "sina.kashani@orelix.be",
+    "phone": "+32476020443",
+    "phoneDisplay": "+32 476 02 04 43",
     "address": "",
     "hours": "Mon – Fri / 09:00 – 18:00 CET",
     "workArea": "Worldwide",
@@ -42,13 +42,13 @@
     "fontBody": "Inter"
   },
   "forms": {
-    "web3formsKey": "",
-    "fallbackEmail": "hello@orelix.com"
+    "fromEmail": "Orelix <hello@orelix.be>",
+    "fallbackEmail": "sina.kashani@orelix.be"
   },
   "hero": {
     "image": "/uploads/hero.png",
-    "eyebrow": "AI Employees for Real Businesses",
-    "eyebrowShort": "AI Employees",
+    "eyebrow": "Building Your Digital Workforce",
+    "eyebrowShort": "Digital Workforce",
     "titleLine1": "Hire AI Employees.",
     "titleLine2": "Scale your business, not your workload.",
     "lead": "Custom AI employees that automate repetitive work and plug into the systems you already use.",

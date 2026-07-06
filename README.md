@@ -45,6 +45,15 @@ Output dir: `dist`
 
 ## Contact form
 
-Form submissions run through [Web3Forms](https://web3forms.com).
-Set your access key in `src/content/settings.json` → `forms.web3formsKey`.
-Without a key, the contact section shows a mailto fallback.
+Submissions use [Resend](https://resend.com) via `/api/contact` on the Cloudflare Worker.
+
+1. Verify **orelix.be** in Resend (DNS records in Cloudflare)
+2. Create an **API key** in Resend
+3. Add **`RESEND_API_KEY`** (encrypted) in Cloudflare → orelix Worker → Settings → Variables
+4. Redeploy (push to GitHub triggers auto-deploy)
+
+Each submission sends:
+- Notification to **sina.kashani@orelix.be**
+- Auto-reply confirmation to the visitor
+
+**Local testing:** copy `.dev.vars.example` → `.dev.vars` and add your key, then `pnpm preview`.

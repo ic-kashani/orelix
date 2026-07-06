@@ -1,6 +1,7 @@
 import { onReady } from "../lib/motion/env";
 import { initSmoothScroll } from "../lib/motion/smooth";
 import { initGsap } from "../lib/motion/gsap";
+import { initContactForm } from "../lib/contact-form";
 import { initUI } from "../lib/motion/ui";
 import { initReveal } from "../lib/motion/reveals";
 import { initServicesScroll } from "../lib/motion/services-scroll";
@@ -33,6 +34,7 @@ export function initApp(): void {
     safe("smooth", () => initSmoothScroll());
     safe("gsap", () => initGsap());
     safe("ui", () => initUI());
+    safe("contact-form", () => initContactForm());
     safe("reveal", () => initReveal());
     safe("services", () => initServicesScroll());
     safe("lightbox", () => initLightbox());

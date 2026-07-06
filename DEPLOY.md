@@ -34,9 +34,8 @@
 
 4. Environment variables (recommended):
 
-   - `PUBLIC_SITE_URL` = the exact public URL of this deploy (including `https://`), e.g. `https://orelix-site.pages.dev`.
-
-   This overrides `site.url` in `settings.json` at build time for `og:url` and the Web3Forms redirect (`/?sent=1`).
+   - `PUBLIC_SITE_URL` = `https://orelix.be`
+   - `RESEND_API_KEY` = your Resend API key (encrypted; powers contact form + auto-reply)
 
 5. Deploy.
 

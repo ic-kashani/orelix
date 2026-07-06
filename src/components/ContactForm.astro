@@ -1,56 +1,49 @@
 ---
 import settings from "../content/settings.json";
-const siteUrl = (
-  import.meta.env.PUBLIC_SITE_URL?.trim() || settings.site.url
-).replace(/\/$/, "");
-const successUrl = `${siteUrl}/?sent=1`;
-const hasWeb3Forms = Boolean(settings.forms.web3formsKey);
 ---
-{hasWeb3Forms ? (
-  <form class="contact-form"
-        action="https://api.web3forms.com/submit"
-        method="POST">
-    <input type="hidden" name="access_key" value={settings.forms.web3formsKey} />
-    <input type="hidden" name="subject" value={`New inquiry — ${settings.business.name}`} />
-    <input type="hidden" name="redirect" value={successUrl} />
-    <input type="hidden" name="from_name" value={settings.business.name} />
-    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+<form class="contact-form" data-contact-form novalidate>
+  <input
+    type="text"
+    name="website"
+    class="hp-field"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+  />
 
-    <div class="field">
-      <label for="name">Name</label>
-      <input id="name" name="Name" type="text" autocomplete="name" required />
-    </div>
-    <div class="field">
-      <label for="email">Email</label>
-      <input id="email" name="Email" type="email" autocomplete="email" required />
-    </div>
-    <div class="field">
-      <label for="company">Company</label>
-      <input id="company" name="Company" type="text" autocomplete="organization" />
-    </div>
-    <div class="field">
-      <label for="interest">Area of interest</label>
-      <select id="interest" name="Area of interest">
-        <option value="">Select one</option>
-        <option>AI Receptionist</option>
-        <option>AI Sales Employee</option>
-        <option>AI Office Assistant</option>
-        <option>AI Customer Support</option>
-        <option>Workflow Automation</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="field field-full">
-      <label for="message">Tell us about your workflows</label>
-      <textarea id="message" name="Message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary btn-lg">Book a Discovery Call</button>
-    <p class="form-note">Your message is sent directly to our inbox.</p>
-  </form>
-) : (
-  <div class="contact-form contact-form--fallback">
-    <p class="form-note">
-      Email us at <a href={`mailto:${settings.forms.fallbackEmail}`}>{settings.forms.fallbackEmail}</a> to get started.
-    </p>
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" autocomplete="name" required />
   </div>
-)}
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+  </div>
+  <div class="field">
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+32 …" />
+  </div>
+  <div class="field">
+    <label for="company">Company</label>
+    <input id="company" name="company" type="text" autocomplete="organization" />
+  </div>
+  <div class="field">
+    <label for="interest">Area of interest</label>
+    <select id="interest" name="interest">
+      <option value="">Select one</option>
+      <option>AI Receptionist</option>
+      <option>AI Sales Employee</option>
+      <option>AI Office Assistant</option>
+      <option>AI Customer Support</option>
+      <option>Workflow Automation</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="field field-full">
+    <label for="message">Tell us about your workflows</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg">Book a Discovery Call</button>
+  <p class="form-error" hidden role="alert"></p>
+  <p class="form-note">Your message is sent directly to our inbox. You'll receive a confirmation email shortly.</p>
+</form>

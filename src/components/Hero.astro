@@ -19,38 +19,58 @@ const parseStat = (value: string) => {
     aria-hidden="true"
   ></div>
   <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-wow" aria-hidden="true">
+    <div class="hero-orbit hero-orbit--outer"></div>
+    <div class="hero-orbit hero-orbit--inner"></div>
+    <div class="hero-core">
+      <span>AI</span>
+      <strong>Workforce</strong>
+    </div>
+    <div class="hero-node hero-node--one">Reception</div>
+    <div class="hero-node hero-node--two">Sales</div>
+    <div class="hero-node hero-node--three">Admin</div>
+    <div class="hero-node hero-node--four">Support</div>
+  </div>
 
   <div class="container hero-inner">
-    <span class="eyebrow eyebrow-light hero-eyebrow" data-hero-stagger>
-      <span class="hero-eyebrow-full">{h.eyebrow}</span>
-      <span class="hero-eyebrow-short">{h.eyebrowShort}</span>
-    </span>
-    <h1 class="hero-title display" data-hero-title>
-      {h.titleLine1}
-    </h1>
-    <p class="hero-subtitle" data-hero-stagger>{h.titleLine2}</p>
-    <p class="hero-lead" data-hero-stagger>{h.lead}</p>
-    {h.lead2 && <p class="hero-lead hero-lead--secondary" data-hero-stagger>{h.lead2}</p>}
+    <div class="hero-copy">
+      <span class="eyebrow eyebrow-light hero-eyebrow" data-hero-stagger>
+        <span class="hero-eyebrow-full">{h.eyebrow}</span>
+        <span class="hero-eyebrow-short">{h.eyebrowShort}</span>
+      </span>
+      <h1 class="hero-title display" data-hero-title>
+        {h.titleLine1}
+      </h1>
+      <p class="hero-subtitle" data-hero-stagger>{h.titleLine2}</p>
+      <p class="hero-lead" data-hero-stagger>{h.lead}</p>
+      {h.lead2 && <p class="hero-lead hero-lead--secondary" data-hero-stagger>{h.lead2}</p>}
+    </div>
 
     <div class="hero-actions" data-hero-stagger>
       <a href="/#contact" class="btn btn-primary btn-lg">{h.ctaPrimary}</a>
       <a href={h.ctaSecondaryHref} class="btn btn-ghost btn-lg">{h.ctaSecondary}</a>
     </div>
 
-    <div class="hero-stats" data-hero-stagger aria-label="Key highlights">
-      {stats.map((s) => {
-        const p = parseStat(s.value);
-        return (
-          <div class="hero-stat">
-            {p ? (
-              <strong data-count={p.num} data-count-suffix={p.suffix}>0{p.suffix}</strong>
-            ) : (
-              <strong>{s.value}</strong>
-            )}
-            <span>{s.label}</span>
-          </div>
-        );
-      })}
+    <div class="hero-bottom">
+      <div class="hero-stats" data-hero-stagger aria-label="Key highlights">
+        {stats.map((s) => {
+          const p = parseStat(s.value);
+          return (
+            <div class="hero-stat">
+              {p ? (
+                <strong data-count={p.num} data-count-suffix={p.suffix}>0{p.suffix}</strong>
+              ) : (
+                <strong>{s.value}</strong>
+              )}
+              <span>{s.label}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div class="hero-live-panel" data-hero-stagger aria-label="AI workforce preview">
+        <span>Live deployment map</span>
+        <strong>5 AI roles ready to plug in</strong>
+      </div>
     </div>
   </div>
 

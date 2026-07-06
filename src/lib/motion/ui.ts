@@ -3,6 +3,23 @@ import { prefersReducedMotion } from "./env";
 import { getLenis } from "./smooth";
 
 // Mobile nav, sticky/auto-hiding header, footer year, form success state.
+export function showContactThanks(form: HTMLFormElement): void {
+  if (!form.parentNode) return;
+
+  const thanks = document.createElement("div");
+  thanks.className = "form-thanks";
+  thanks.innerHTML =
+    "<strong>Thank you — we received your message.</strong><br />We'll get back to you within one business day. Check your inbox for a confirmation email.";
+  form.parentNode.insertBefore(thanks, form);
+  form.style.display = "none";
+
+  if (!prefersReducedMotion()) {
+    gsap.from(thanks, { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" });
+  }
+
+  thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 export function initUI(): void {
   // year
   const yearEl = document.getElementById("year");
@@ -48,25 +65,9 @@ export function initUI(): void {
     update(window.scrollY);
   }
 
-  // contact form success
+  // contact form success (legacy redirect)
   if (window.location.search.indexOf("sent=1") !== -1) {
-    const form = document.querySelector<HTMLFormElement>(".contact-form");
-    if (form && form.parentNode) {
-      const thanks = document.createElement("div");
-      thanks.className = "form-thanks";
-      thanks.innerHTML =
-        "<strong>Bedankt voor uw aanvraag.</strong><br />We nemen binnen 24u contact met u op.";
-      form.parentNode.insertBefore(thanks, form);
-      form.style.display = "none";
-      if (!prefersReducedMotion()) {
-        gsap.from(thanks, { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" });
-      }
-      thanks.scrollIntoView({ behavior: "smooth", block: "center" });
-      try {
-        history.replaceState({}, "", window.location.pathname);
-      } catch {
-        /* noop */
-      }
-    }
+    const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+    if (form) showContactThanks(form);
   }
 }
