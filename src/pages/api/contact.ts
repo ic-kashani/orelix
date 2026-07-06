@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import settings from "../../content/settings.json";
+import { readSecret } from "../../lib/env";
 
 export const prerender = false;
 
@@ -33,7 +34,7 @@ async function sendResendEmail(
 }
 
 export const POST: APIRoute = async ({ request, locals }) => {
-  const apiKey = locals.runtime?.env?.RESEND_API_KEY;
+  const apiKey = readSecret("RESEND_API_KEY", locals);
   if (!apiKey) {
     return Response.json({ error: "Email service not configured" }, { status: 503 });
   }
