@@ -8,7 +8,7 @@ export function initPreloader(): Promise<void> {
   const el = document.querySelector<HTMLElement>("[data-preloader]");
   if (!el) return Promise.resolve();
 
-  const seen = sessionStorage.getItem("merati-intro") === "1";
+  const seen = sessionStorage.getItem("orelix-intro") === "1";
   if (seen || prefersReducedMotion()) {
     el.remove();
     document.body.classList.remove("is-loading");
@@ -23,7 +23,7 @@ export function initPreloader(): Promise<void> {
     const counter = { v: 0 };
     const tl = gsap.timeline({
       onComplete: () => {
-        sessionStorage.setItem("merati-intro", "1");
+        sessionStorage.setItem("orelix-intro", "1");
         el.dataset.done = "1";
         el.remove();
         document.body.classList.remove("is-loading");

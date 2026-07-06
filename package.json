@@ -1,9 +1,9 @@
 {
-  "name": "merati-tegelwerken-site",
+  "name": "orelix-site",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Merati Tegelwerken - statische website (Astro, gebaseerd op @kashani-studio/template-classic)",
+  "description": "Orelix — static website (Astro, based on @kashani-studio/template-classic)",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -1,9 +1,21 @@
 ---
 import settings from "../content/settings.json";
+const hasLogo = Boolean(settings.business.logo);
 ---
 <div class="preloader" data-preloader aria-hidden="true">
   <div class="preloader-inner">
-    <span class="preloader-brand" data-preloader-fade>{settings.business.shortName}</span>
+    {hasLogo ? (
+      <img
+        src={settings.business.logo}
+        alt=""
+        class="preloader-logo"
+        data-preloader-fade
+        width="1024"
+        height="682"
+      />
+    ) : (
+      <span class="preloader-brand" data-preloader-fade>{settings.business.shortName}</span>
+    )}
     <div class="preloader-bar-track" data-preloader-fade>
       <span class="preloader-bar" data-preloader-bar></span>
     </div>

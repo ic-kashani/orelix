@@ -1,42 +1,50 @@
 ---
 import settings from "../content/settings.json";
 const nav = [
-  { href: "/#diensten", label: "Diensten" },
-  { href: "/realisaties", label: "Realisaties" },
-  { href: "/#over", label: "Over " + settings.business.shortName },
+  { href: "/vision", label: "Our vision" },
+  { href: "/#services", label: "Services" },
+  { href: "/how-we-work", label: "How we work" },
+  { href: "/#industries", label: "Industries" },
   { href: "/#contact", label: "Contact" },
 ];
 const hasLogo = Boolean(settings.business.logo);
+const logoTag = settings.business.logoTag;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 <header class="site-header" id="top">
   <div class="container nav">
-    <a href="/" class={`logo${hasLogo ? " logo--image" : ""}`} aria-label={settings.business.name + " - homepagina herladen"}>
+    <a href="/" class={`logo${hasLogo ? " logo--lockup" : ""}`} aria-label={settings.business.name + " — home"}>
       {hasLogo ? (
-        <>
-          <img src={settings.business.logo} alt="" class="logo-image" width="160" height="160" />
-          <span class="logo-wordmark logo-wordmark--beside">
-            <span class="logo-name">{settings.business.shortName}</span>
-            <span class="logo-tag">Tegelwerken</span>
-          </span>
-        </>
+        <img
+          src={settings.business.logo}
+          alt={settings.business.logoAlt}
+          class="logo-image"
+          width="1024"
+          height="682"
+        />
       ) : (
         <>
           <span class="logo-mark" aria-hidden="true">{settings.business.shortName.charAt(0)}</span>
           <span class="logo-wordmark">
             <span class="logo-name">{settings.business.shortName}</span>
-            <span class="logo-tag">{settings.business.name.replace(settings.business.shortName, "").trim()}</span>
+            <span class="logo-tag">{logoTag}</span>
           </span>
         </>
       )}
     </a>
 
-    <nav class="nav-links" aria-label="Hoofdnavigatie">
-      {nav.map(item => <a href={item.href}>{item.label}</a>)}
+    <nav class="nav-links" aria-label="Main navigation">
+      {nav.map(item => {
+        const href = item.href.replace(/\/$/, "");
+        const isHash = href.includes("#");
+        const active = !isHash && currentPath === href;
+        return <a href={item.href} aria-current={active ? "page" : undefined}>{item.label}</a>;
+      })}
     </nav>
 
-    <a href="/#contact" class="btn btn-nav-cta nav-cta" data-magnetic="0.3">Offerte aanvragen</a>
+    <a href="/#contact" class="btn btn-nav-cta nav-cta">Book a call</a>
 
-    <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false">
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>

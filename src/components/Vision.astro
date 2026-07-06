@@ -1,0 +1,64 @@
+---
+import settings from "../content/settings.json";
+
+interface Props {
+  asPage?: boolean;
+}
+
+const { asPage = false } = Astro.props;
+const v = settings.vision;
+const Tag = asPage ? "h1" : "h2";
+---
+<section id="vision" class={`section vision${asPage ? " vision--page" : ""}`}>
+  <div class="container">
+    <div class="vision-inner">
+      <span class="eyebrow eyebrow-light" data-anim="reveal">{v.eyebrow}</span>
+      <Tag class="display vision-title" data-anim="heading">
+        {v.titlePrefix}{" "}<em class="vision-highlight">{v.titleHighlight}</em>
+      </Tag>
+
+      {v.intro && (
+        <p class="vision-intro" data-anim="reveal">{v.intro}</p>
+      )}
+
+      <div class="vision-manifesto" data-anim="reveal" aria-label="Our manifesto">
+        {v.manifesto.map((line) => (
+          <p class="vision-line">{line}</p>
+        ))}
+      </div>
+
+      {asPage && v.sections && (
+        <div class="vision-sections" data-anim="reveal">
+          {v.sections.map((section) => (
+            <article class="vision-block">
+              <h2 class="vision-block-title">{section.title}</h2>
+              <p class="vision-block-body">{section.body}</p>
+            </article>
+          ))}
+        </div>
+      )}
+
+      {asPage && v.principles && (
+        <div class="vision-principles" data-anim="reveal">
+          <h2 class="vision-principles-label">What we believe</h2>
+          <ul>
+            {v.principles.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p class="vision-closing" data-anim="reveal">{v.closing}</p>
+      {v.closingLine && (
+        <p class="vision-closing-line" data-anim="reveal">{v.closingLine}</p>
+      )}
+
+      {asPage && (
+        <a href="/#contact" class="btn btn-primary btn-lg vision-cta" data-anim="reveal">
+          Book a Discovery Call
+        </a>
+      )}
+    </div>
+  </div>
+</section>

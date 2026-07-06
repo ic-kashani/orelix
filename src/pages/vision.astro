@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Vision from "../components/Vision.astro";
+import Footer from "../components/Footer.astro";
+import settings from "../content/settings.json";
+
+const p = settings.pages.vision;
+---
+<Base title={p.title} description={p.description}>
+  <Header />
+  <main id="main">
+    <Vision asPage />
+  </main>
+  <Footer />
+</Base>

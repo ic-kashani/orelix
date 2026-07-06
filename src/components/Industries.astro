@@ -1,0 +1,37 @@
+---
+import settings from "../content/settings.json";
+const ind = settings.industries;
+const tickerItems = [...ind.items, ...ind.items];
+---
+<section id="industries" class="section industries">
+  <div class="container">
+    <div class="industries-inner">
+      <header class="section-head industries-head">
+        <span class="eyebrow" data-anim="reveal">{ind.eyebrow}</span>
+        <h2 class="display" data-anim="heading">
+          {ind.titleLine1} <em>{ind.titleEmphasis}</em>
+        </h2>
+        <p class="section-lead" data-anim="reveal">{ind.lead}</p>
+      </header>
+
+      <div class="industry-strip" data-anim="reveal">
+        <div class="industry-strip-head">
+          <span>Industries we serve</span>
+          <strong>Real-world teams, repetitive workflows</strong>
+        </div>
+        <div class="industry-marquee" aria-label="Industries Orelix serves">
+          <ul class="industry-marquee-track">
+            {tickerItems.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p class="industries-security" data-anim="reveal">
+        <span class="security-badge" aria-hidden="true">Secure</span>
+        {ind.security}
+      </p>
+    </div>
+  </div>
+</section>

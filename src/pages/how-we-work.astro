@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import HowWeWork from "../components/HowWeWork.astro";
+import Footer from "../components/Footer.astro";
+import settings from "../content/settings.json";
+
+const p = settings.pages.howWeWork;
+---
+<Base title={p.title} description={p.description}>
+  <Header />
+  <main id="main">
+    <HowWeWork asPage />
+  </main>
+  <Footer />
+</Base>

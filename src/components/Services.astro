@@ -1,18 +1,17 @@
 ---
 import { getCollection } from "astro:content";
+import settings from "../content/settings.json";
+const s = settings.services;
 const items = (await getCollection("services")).sort(
   (a, b) => a.data.order - b.data.order,
 );
 ---
-<section id="diensten" class="services" data-services>
+<section id="services" class="services" data-services>
   <div class="services-track" data-services-track>
     <div class="panel service-intro">
-      <span class="eyebrow">Diensten</span>
-      <h2 class="display">Elk project, dezelfde <em>precisie.</em></h2>
-      <p>
-        Van tegelwerk en badkamers tot volledige renovatie en vloerafwerking -
-        laminaat, parket en meer. Strak, tijdloos werk dat decennia meegaat.
-      </p>
+      <span class="eyebrow">{s.eyebrow}</span>
+      <h2 class="display">{s.titleLine1} <em>{s.titleEmphasis}</em></h2>
+      <p>{s.lead}</p>
       <span class="services-hint">Scroll &rarr;</span>
     </div>
 
@@ -41,12 +40,10 @@ const items = (await getCollection("services")).sort(
     })}
 
     <div class="panel service-outro">
-      <span class="eyebrow">Klaar?</span>
-      <h3>Laten we uw project bespreken.</h3>
-      <p>Eén aanspreekpunt, van eerste opmeting tot nette oplevering.</p>
-      <a href="/#contact" class="btn btn-primary btn-lg" data-magnetic="0.4" data-cursor="Start">
-        Vraag uw offerte aan
-      </a>
+      <span class="eyebrow">{s.outroEyebrow}</span>
+      <h3>{s.outroTitle}</h3>
+      <p>{s.outroLead}</p>
+      <a href="/#contact" class="btn btn-primary btn-lg">{s.outroCta}</a>
     </div>
   </div>
 

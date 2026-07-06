@@ -1,0 +1,93 @@
+---
+import settings from "../content/settings.json";
+
+const w = settings.whatWeDo;
+const outcomes = ["Time returned", "Costs reduced", "Growth unlocked"];
+---
+<section id="what-we-do" class="section what-we-do">
+  <div class="container">
+    <div class="what-we-do-inner">
+      <div class="what-we-do-copy">
+        <span class="eyebrow" data-anim="reveal">{w.eyebrow}</span>
+        <h2 class="display" data-anim="heading">{w.title}</h2>
+        <p class="section-lead" data-anim="reveal">{w.intro}</p>
+      </div>
+
+      <div class="workforce-console" data-anim="reveal">
+        <div class="workforce-grid" aria-hidden="true"></div>
+        <svg class="workforce-circuit" viewBox="0 0 1100 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="workforce-pulse" x1="90" y1="310" x2="1010" y2="310" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2dd4ff" />
+              <stop offset="0.5" stop-color="#7c5cff" />
+              <stop offset="1" stop-color="#40e0a0" />
+            </linearGradient>
+            <filter id="workforce-glow" x="-20%" y="-40%" width="140%" height="180%">
+              <feGaussianBlur stdDeviation="8" result="blur" />
+              <feColorMatrix
+                in="blur"
+                type="matrix"
+                values="0 0 0 0 0.28 0 0 0 0 0.78 0 0 0 0 1 0 0 0 0.75 0"
+                result="glow"
+              />
+              <feMerge>
+                <feMergeNode in="glow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path class="workforce-wire workforce-wire--top" d="M125 160H370C430 160 450 245 512 245H588C650 245 670 160 730 160H975" />
+          <path class="workforce-wire workforce-wire--mid" d="M90 310H405C455 310 470 310 520 310H580C630 310 645 310 695 310H1010" />
+          <path class="workforce-wire workforce-wire--bottom" d="M125 460H370C430 460 450 375 512 375H588C650 375 670 460 730 460H975" />
+          <path id="workforce-packet-route" d="M90 310H405C455 310 470 310 520 310H580C630 310 645 310 695 310H1010" />
+          <path class="workforce-pulse-path" d="M90 310H405C455 310 470 310 520 310H580C630 310 645 310 695 310H1010" stroke="url(#workforce-pulse)" filter="url(#workforce-glow)" />
+          <g class="workforce-packets" filter="url(#workforce-glow)">
+            <circle r="5" fill="#2dd4ff">
+              <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#workforce-packet-route" />
+              </animateMotion>
+            </circle>
+            <circle r="4" fill="#40e0a0">
+              <animateMotion dur="8s" repeatCount="indefinite" begin="-3s" rotate="auto">
+                <mpath href="#workforce-packet-route" />
+              </animateMotion>
+            </circle>
+          </g>
+        </svg>
+
+        <div class="workforce-lane workforce-lane--input">
+          <span class="workforce-lane-label">Repetitive work</span>
+          <ul class="task-tags" aria-label="Repetitive tasks we automate">
+            {w.tasks.map((task, i) => (
+              <li style={`--task-delay: ${(i * 0.12).toFixed(2)}s;`}>
+                <span>{task}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="workforce-core" aria-hidden="true">
+          <span class="workforce-core-ring workforce-core-ring--outer"></span>
+          <span class="workforce-core-ring workforce-core-ring--inner"></span>
+          <span class="workforce-core-chip">AI</span>
+          <strong>Digital Employee</strong>
+          <small>routes, responds, reports</small>
+        </div>
+
+        <div class="workforce-lane workforce-lane--output">
+          <span class="workforce-lane-label">Business impact</span>
+          <ul class="impact-stack" aria-label="Business outcomes">
+            {outcomes.map((outcome, i) => (
+              <li style={`--impact-delay: ${(i * 0.16).toFixed(2)}s;`}>
+                <span class="impact-index">{String(i + 1).padStart(2, "0")}</span>
+                <span>{outcome}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p class="what-we-do-closing" data-anim="reveal">{w.closing}</p>
+    </div>
+  </div>
+</section>

@@ -1,8 +1,7 @@
 ---
 import settings from "../content/settings.json";
-import SocialLinks from "./SocialLinks.astro";
 const h = settings.hero;
-const heroImage = "/uploads/hero-tilework.png";
+const heroImage = h.image;
 
 type Stat = { value: string; label: string };
 const stats: Stat[] = h.stats;
@@ -22,29 +21,23 @@ const parseStat = (value: string) => {
   <div class="hero-scrim" aria-hidden="true"></div>
 
   <div class="container hero-inner">
-    <div data-hero-stagger>
-      <SocialLinks variant="hero" label="Volg ons online" />
-    </div>
-
     <span class="eyebrow eyebrow-light hero-eyebrow" data-hero-stagger>
       <span class="hero-eyebrow-full">{h.eyebrow}</span>
-      <span class="hero-eyebrow-short">Tegelwerk · Mol &amp; België</span>
+      <span class="hero-eyebrow-short">{h.eyebrowShort}</span>
     </span>
     <h1 class="hero-title display" data-hero-title>
-      {h.titleLine1} <em>{h.titleEmphasis}</em>
+      {h.titleLine1}
     </h1>
+    <p class="hero-subtitle" data-hero-stagger>{h.titleLine2}</p>
     <p class="hero-lead" data-hero-stagger>{h.lead}</p>
+    {h.lead2 && <p class="hero-lead hero-lead--secondary" data-hero-stagger>{h.lead2}</p>}
 
     <div class="hero-actions" data-hero-stagger>
-      <a href="/#contact" class="btn btn-primary btn-lg" data-magnetic="0.4" data-cursor="Offerte">
-        Vraag uw offerte aan
-      </a>
-      <a href="/realisaties" class="btn btn-ghost btn-lg" data-magnetic="0.4">
-        Bekijk realisaties
-      </a>
+      <a href="/#contact" class="btn btn-primary btn-lg">{h.ctaPrimary}</a>
+      <a href={h.ctaSecondaryHref} class="btn btn-ghost btn-lg">{h.ctaSecondary}</a>
     </div>
 
-    <div class="hero-stats" data-hero-stagger aria-label="Onze cijfers">
+    <div class="hero-stats" data-hero-stagger aria-label="Key highlights">
       {stats.map((s) => {
         const p = parseStat(s.value);
         return (

@@ -1,0 +1,145 @@
+---
+import settings from "../content/settings.json";
+
+interface Props {
+  asPage?: boolean;
+}
+
+const { asPage = false } = Astro.props;
+const h = settings.howWeWork;
+const Tag = asPage ? "h1" : "h2";
+const graphId = asPage ? "process-page" : "process-preview";
+const routeId = `${graphId}-route`;
+const glowId = `${graphId}-glow`;
+const gridId = `${graphId}-grid`;
+const gradientId = `${graphId}-gradient`;
+const nodePositions = [
+  { x: "12%", y: "35%" },
+  { x: "28%", y: "74%" },
+  { x: "50%", y: "26%" },
+  { x: "72%", y: "74%" },
+  { x: "88%", y: "35%" },
+];
+---
+<section id="how-we-work" class={`section how-we-work${asPage ? " how-we-work--page" : ""}`}>
+  <div class="container">
+    <header class={`section-head${asPage ? " section-head--page" : ""}`}>
+      <span class="eyebrow" data-anim="reveal">{h.eyebrow}</span>
+      <Tag class="display" data-anim="heading">
+        {h.titleLine1}{" "}<em>{h.titleEmphasis}</em>
+      </Tag>
+      {asPage && h.lead && <p class="section-lead" data-anim="reveal">{h.lead}</p>}
+    </header>
+
+    <div class="process-flow" data-anim="reveal" data-process-graph role="list" aria-label="Our process">
+      <div class="process-map-shell" aria-hidden="true">
+        <svg
+          class="process-map"
+          viewBox="0 0 1000 620"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern id={gridId} width="64" height="64" patternUnits="userSpaceOnUse">
+              <path d="M64 0H0V64" stroke="rgba(255,255,255,0.09)" stroke-width="1" />
+            </pattern>
+            <linearGradient id={gradientId} x1="105" y1="180" x2="895" y2="470" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#2dd4ff" />
+              <stop offset="40%" stop-color="#7c5cff" />
+              <stop offset="70%" stop-color="#40e0a0" />
+              <stop offset="100%" stop-color="#ffcc66" />
+            </linearGradient>
+            <filter id={glowId} x="-20%" y="-30%" width="140%" height="160%">
+              <feGaussianBlur stdDeviation="9" result="blur" />
+              <feColorMatrix
+                in="blur"
+                type="matrix"
+                values="0 0 0 0 0.23 0 0 0 0 0.75 0 0 0 0 1 0 0 0 0.7 0"
+                result="glow"
+              />
+              <feMerge>
+                <feMergeNode in="glow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <rect width="1000" height="620" fill={`url(#${gridId})`} opacity="0.42" />
+          <path class="process-constellation" d="M110 215L280 455L500 170L720 455L890 215" />
+          <path class="process-route-shadow" d="M120 220C180 300 210 420 280 455C390 520 445 350 500 170C555 350 610 520 720 455C790 420 820 300 880 220" />
+          <path
+            id={routeId}
+            class="process-route"
+            data-process-route
+            d="M120 220C180 300 210 420 280 455C390 520 445 350 500 170C555 350 610 520 720 455C790 420 820 300 880 220"
+            stroke={`url(#${gradientId})`}
+            filter={`url(#${glowId})`}
+          />
+          <g class="process-radar">
+            <ellipse cx="500" cy="316" rx="285" ry="156" />
+            <ellipse cx="500" cy="316" rx="180" ry="98" />
+            <path d="M210 316H790" />
+            <path d="M500 96V536" />
+          </g>
+          <g class="process-sparks" filter={`url(#${glowId})`}>
+            <circle class="process-spark process-spark--cyan" r="6">
+              <animateMotion dur="7.5s" repeatCount="indefinite" rotate="auto">
+                <mpath href={`#${routeId}`} />
+              </animateMotion>
+            </circle>
+            <circle class="process-spark process-spark--violet" r="4">
+              <animateMotion dur="9s" repeatCount="indefinite" begin="-3s" rotate="auto">
+                <mpath href={`#${routeId}`} />
+              </animateMotion>
+            </circle>
+            <circle class="process-spark process-spark--amber" r="5">
+              <animateMotion dur="11s" repeatCount="indefinite" begin="-6s" rotate="auto">
+                <mpath href={`#${routeId}`} />
+              </animateMotion>
+            </circle>
+          </g>
+        </svg>
+
+        <div class="process-core">
+          <span class="process-core-ring"></span>
+          <span class="process-core-label">AI</span>
+          <strong>Workforce Core</strong>
+          <small>live system map</small>
+        </div>
+      </div>
+
+      <div class="process-node-layer">
+        {h.steps.map((step, i) => {
+          const pos = nodePositions[i] ?? { x: "50%", y: `${18 + i * 16}%` };
+          const num = String(i + 1).padStart(2, "0");
+          const delay = `${(i * 0.1).toFixed(1)}s`;
+
+          return (
+            <article
+              class="process-node"
+              role="listitem"
+              data-process-node
+              style={`--x: ${pos.x}; --y: ${pos.y}; --node-delay: ${delay};`}
+            >
+              <div class="process-node-marker">
+                <span class="process-node-num">{num}</span>
+              </div>
+              <div class="process-node-body">
+                <span class="process-node-kicker">Phase {num}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+
+    {asPage && (
+      <p class="how-we-work-cta" data-anim="reveal">
+        <a href="/#contact" class="btn btn-primary btn-lg">Book a Discovery Call</a>
+      </p>
+    )}
+  </div>
+</section>

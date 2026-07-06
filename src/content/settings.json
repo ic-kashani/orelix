@@ -1,35 +1,33 @@
 {
   "site": {
-    "url": "https://meratitegelwerken.be",
-    "lang": "nl-BE",
-    "ogLocale": "nl_BE"
+    "url": "https://orelix.com",
+    "lang": "en",
+    "ogLocale": "en_US"
   },
   "business": {
-    "name": "Merati Tegelwerken",
-    "shortName": "Merati",
+    "name": "Orelix",
+    "shortName": "Orelix",
     "logo": "/uploads/logo.png",
-    "logoAlt": "Merati Tegelwerken logo",
-    "tagline": "Vakmanschap dat blijft",
-    "description": "Tegelwerk én vloerwerk voor uw woning: badkamers, keukens en volledige vloerafwerking - keramiek en natuursteen, maar ook laminaat, parket en andere vloeren - in heel Belgie. Behrouz Merati - opgeleid in de Perzische ambachtelijke traditie.",
-    "founder": "Behrouz Merati",
-    "yearsExperience": 15,
-    "kbo": "1019.132.082",
-    "btw": "BE1019.132.082",
-    "foundedYear": 2023
+    "logoAlt": "Orelix — Building Your Digital Workforce",
+    "logoTag": "AI Employees for Real Businesses",
+    "tagline": "AI Employees for Real Businesses",
+    "description": "Orelix builds intelligent AI employees that automate repetitive work, support your team, and integrate seamlessly with your existing business processes.",
+    "foundedYear": 2025
   },
   "contact": {
-    "email": "meratitegelwerken@gmail.com",
-    "phone": "+32485222233",
-    "phoneDisplay": "0485 22 22 33",
-    "address": "Donk 12, 2400 Mol",
-    "hours": "Ma - Za / 08:00 - 18:00",
-    "workArea": "Heel Belgie"
+    "email": "hello@orelix.com",
+    "phone": "",
+    "phoneDisplay": "",
+    "address": "",
+    "hours": "Mon – Fri / 09:00 – 18:00 CET",
+    "workArea": "Worldwide",
+    "sectionEyebrow": "Get started",
+    "sectionTitleLine1": "Book a",
+    "sectionTitleEmphasis": "discovery call.",
+    "sectionLead": "Tell us about your business and workflows. We'll identify where AI employees can deliver the highest ROI — and get back to you within one business day."
   },
   "social": {
-    "youtube": "https://www.youtube.com/@Meratitegelwerken",
-    "tiktok": "https://www.tiktok.com/@meratitegelwerkeen",
-    "facebook": "https://www.facebook.com/p/Merati-Tegelwerken-100095099767778/",
-    "instagram": "https://www.instagram.com/merati_tegelwerken/"
+    "linkedin": "https://www.linkedin.com/company/orelix"
   },
   "theme": {
     "colorBg": "#ffffff",
@@ -37,44 +35,178 @@
     "colorInk": "#0a1f44",
     "colorInkSoft": "#2a3f6c",
     "colorInkMuted": "#6b7a99",
-    "colorAccent": "#c8102e",
-    "colorAccentDeep": "#8b0a1e",
+    "colorAccent": "#7c5cff",
+    "colorAccentDeep": "#5b3fd9",
     "colorDark": "#0a1f44",
     "fontDisplay": "Cormorant Garamond",
     "fontBody": "Inter"
   },
   "forms": {
-    "web3formsKey": "d38cd945-fa1f-4a9c-93e2-98cc104df0c2",
-    "fallbackEmail": "meratitegelwerken@gmail.com"
+    "web3formsKey": "",
+    "fallbackEmail": "hello@orelix.com"
   },
   "hero": {
-    "eyebrow": "Tegel- & vloerwerken / Mol & heel Belgie",
-    "titleLine1": "Vakmanschap dat",
-    "titleEmphasis": "blijft.",
-    "lead": "Niet alleen tegels: ook laminaat, parket en andere vloeren strak gelegd - naast badkamers en keukens - met de precisie van een Perzische ambachtsman en de zorg die u bij elke naad en elk detail terugziet.",
+    "image": "/uploads/hero.png",
+    "eyebrow": "AI Employees for Real Businesses",
+    "eyebrowShort": "AI Employees",
+    "titleLine1": "Hire AI Employees.",
+    "titleLine2": "Scale your business, not your workload.",
+    "lead": "Custom AI employees that automate repetitive work and plug into the systems you already use.",
+    "lead2": "",
+    "ctaPrimary": "Book a Discovery Call",
+    "ctaSecondary": "See Use Cases",
+    "ctaSecondaryHref": "/#services",
     "stats": [
-      { "value": "15+", "label": "Jaar ervaring" },
-      { "value": "100%", "label": "Maatwerk" },
-      { "value": "Heel", "label": "Belgie" }
+      { "value": "24/7", "label": "Always working" },
+      { "value": "ROI", "label": "Driven" },
+      { "value": "Secure", "label": "Cloud infrastructure" }
     ]
   },
-  "about": {
-    "eyebrow": "Over Behrouz Merati",
-    "titleLine1": "Een ambacht uit",
-    "titleEmphasis": "Iran,",
-    "titleLine2": "gerijpt in Belgie.",
-    "portrait": "/uploads/behrouz-merati.jpg",
-    "portraitAlt": "Behrouz Merati, oprichter van Merati Tegelwerken",
-    "paragraphs": [
-      "Mijn naam is **Behrouz Merati**. Ik ben opgegroeid in Iran, waar ik het tegelvak heb geleerd op de *Perzische manier* - een traditie waarin elk voegje, elke verspringing en elke aansluiting wordt behandeld als detail dat telt. Geen snelle oplossingen, maar werk dat decennia mooi blijft.",
-      "Sinds vele jaren ben ik actief in Belgie, waar ik die ambacht heb verfijnd met de hedendaagse materialen en strakke afwerkingen die u vandaag verwacht: grootformaat tegels, natuursteen, mozaiek, inloopdouches en designvloeren. Daarnaast leg ik ook **laminaat**, **parket** en andere vloerafwerkingen - altijd met hetzelfde streven naar niveau en nette details. Wat hetzelfde is gebleven: de overtuiging dat een oppervlak *recht* hoort te liggen, lijnen kloppen en het oog van de meester het laatste oordeel velt.",
-      "Ik werk persoonlijk - van eerste opmeting tot oplevering. Geen tussenpartijen, geen verrassingen, gewoon vakwerk afgeleverd zoals afgesproken."
+  "vision": {
+    "eyebrow": "Our vision",
+    "titlePrefix": "The future of every business is",
+    "titleHighlight": "hybrid.",
+    "intro": "We are entering an era where growth no longer depends on hiring more people for every repetitive task. The most ambitious companies will combine human judgment with a digital workforce that never sleeps — trained on their standards, connected to their tools, accountable to their goals.",
+    "manifesto": [
+      "Tomorrow's companies won't only hire people.",
+      "They'll hire AI employees.",
+      "Not to replace humans — to remove the work that buries them.",
+      "To accelerate growth without burning out the teams that make it possible.",
+      "To free people for creativity, strategy, relationships, and the decisions only they can make."
     ],
-    "points": [
-      { "strong": "15+ jaar ervaring", "rest": "tussen Iran en Belgie." },
-      { "strong": "Perfectionisme", "rest": "als standaard, niet als optie." },
-      { "strong": "Persoonlijk contact", "rest": "van offerte tot oplevering." },
-      { "strong": "Heel Belgie", "rest": "- Vlaanderen, Brussel & Wallonie." }
+    "sections": [
+      {
+        "title": "A workforce, not a widget",
+        "body": "We don't believe in generic chatbots bolted onto broken processes. Orelix builds digital employees — roles with responsibilities, context, and standards. They show up in your workflows the way a trained colleague would: consistent, reliable, and aligned with how your business actually runs."
+      },
+      {
+        "title": "Technology that stays in the background",
+        "body": "The best systems disappear into the work. Our vision is a world where AI isn't a buzzword on a slide deck — it's the quiet infrastructure that keeps operations moving while your people do what humans do best. Invisible when it's working. Indispensable when you need it."
+      },
+      {
+        "title": "From implementation partner to platform",
+        "body": "Today we design custom AI employees for real businesses in the real economy. Tomorrow we imagine a platform where every organization can compose, deploy, and evolve its digital workforce — securely, measurably, and at scale. That long arc guides every decision we make."
+      }
+    ],
+    "principles": [
+      "Measurable value — if it doesn't save time, cut cost, or grow revenue, we don't build it.",
+      "Human oversight — automation with accountability, not automation for its own sake.",
+      "Your stack, your rules — integration over rip-and-replace, every time.",
+      "Trust by design — enterprise-grade security for every deployment."
+    ],
+    "closing": "At Orelix, we're not waiting for that future. We're building it — one digital employee at a time, for teams that refuse to choose between growth and sanity.",
+    "closingLine": "This is what we mean by Building Your Digital Workforce."
+  },
+  "whatWeDo": {
+    "eyebrow": "What we do",
+    "title": "We build AI Employees.",
+    "intro": "Every business has repetitive tasks.",
+    "tasks": [
+      "Emails",
+      "Scheduling",
+      "Lead qualification",
+      "Customer support",
+      "Reporting",
+      "Administration"
+    ],
+    "closing": "Instead of hiring another employee for repetitive work, we build AI employees that perform these tasks autonomously and integrate with your existing software."
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "titleLine1": "AI employees for",
+    "titleEmphasis": "every function.",
+    "lead": "Purpose-built roles that work alongside your team — connected to the tools you already use.",
+    "outroEyebrow": "Ready?",
+    "outroTitle": "Let's build your digital workforce.",
+    "outroLead": "From discovery to deployment — custom AI employees tailored to how your business actually runs.",
+    "outroCta": "Book a Discovery Call"
+  },
+  "howWeWork": {
+    "eyebrow": "How we work",
+    "titleLine1": "From discovery to",
+    "titleEmphasis": "continuous improvement.",
+    "lead": "A proven process — from understanding your operations to deploying and optimizing your AI workforce.",
+    "steps": [
+      { "title": "Discover", "description": "We analyze your business processes." },
+      { "title": "Design", "description": "We identify opportunities where AI delivers the highest ROI." },
+      { "title": "Build", "description": "We create custom AI employees tailored to your business." },
+      { "title": "Deploy", "description": "We integrate everything into your existing systems." },
+      { "title": "Improve", "description": "We continuously optimize your AI workforce." }
     ]
+  },
+  "industries": {
+    "eyebrow": "Industries",
+    "titleLine1": "Built for operators in",
+    "titleEmphasis": "the real economy.",
+    "lead": "Initially focused on industries where repetitive work slows growth the most.",
+    "items": [
+      "Construction",
+      "HVAC",
+      "Solar Installers",
+      "Electrical Contractors",
+      "Real Estate",
+      "Accounting",
+      "Manufacturing",
+      "Logistics",
+      "Professional Services"
+    ],
+    "security": "Secure cloud infrastructure — enterprise-grade security for every deployment."
+  },
+  "navigation": [
+    { "href": "/services", "label": "Services" },
+    { "href": "/about", "label": "About" },
+    { "href": "/industries", "label": "Industries" },
+    { "href": "/contact", "label": "Contact" }
+  ],
+  "cta": {
+    "eyebrow": "Get started",
+    "title": "Let's build your digital workforce.",
+    "lead": "Book a discovery call and we'll identify where AI employees deliver the highest ROI for your business.",
+    "button": "Book a Discovery Call"
+  },
+  "home": {
+    "visionTeaser": "Tomorrow's companies won't only hire people — they'll build a hybrid workforce of humans and digital employees working side by side."
+  },
+  "pages": {
+    "vision": {
+      "title": "Our vision",
+      "description": "The future of every business is hybrid. Orelix is building the digital workforce — AI employees that work alongside your team."
+    },
+    "howWeWork": {
+      "title": "How we work",
+      "description": "Discover, design, build, deploy, and improve — how Orelix delivers custom AI employees for your business."
+    },
+    "services": {
+      "title": "Services",
+      "description": "AI receptionists, sales employees, office assistants, customer support, and workflow automation — built for your business.",
+      "heroEyebrow": "Our services",
+      "heroTitle": "AI employees for",
+      "heroEmphasis": "every function.",
+      "heroLead": "Purpose-built roles that work alongside your team — connected to the tools you already use."
+    },
+    "about": {
+      "title": "About",
+      "description": "Orelix builds the digital workforce of tomorrow. Our vision, values, and how we work with every client.",
+      "heroEyebrow": "About Orelix",
+      "heroTitle": "Building the digital workforce of",
+      "heroEmphasis": "tomorrow.",
+      "heroLead": "We don't sell AI — we solve business problems with measurable outcomes."
+    },
+    "industries": {
+      "title": "Industries",
+      "description": "Orelix serves construction, HVAC, solar, real estate, accounting, manufacturing, logistics, and professional services.",
+      "heroEyebrow": "Industries",
+      "heroTitle": "Built for operators in",
+      "heroEmphasis": "the real economy.",
+      "heroLead": "Industries where repetitive work slows growth the most — and where AI employees make the biggest impact."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Book a discovery call with Orelix. Tell us about your workflows and we'll show you where AI employees fit.",
+      "heroEyebrow": "Get started",
+      "heroTitle": "Book a",
+      "heroEmphasis": "discovery call.",
+      "heroLead": "Tell us about your business and workflows. We'll get back to you within one business day."
+    }
   }
 }

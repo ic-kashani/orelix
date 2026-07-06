@@ -1,54 +1,50 @@
-# Merati Tegelwerken - Website
+# Orelix — Website
 
-Statische website voor Merati Tegelwerken (Behrouz Merati, Dessel).
-Gebouwd op `@kashani-studio/template-classic`.
+Static website for Orelix — intelligent AI employees for modern teams.
+Built on `@kashani-studio/template-classic`.
 
-## Lokaal draaien
+## Run locally
 
 ```powershell
 pnpm install
 pnpm dev          # http://localhost:4321
 ```
 
-## Build voor productie
+## Production build
 
 ```powershell
 pnpm build        # output in dist/
-pnpm preview      # lokaal de build serveren
+pnpm preview      # serve the build locally
 ```
 
-## Wat aanpassen
+## What to customize
 
-Alle merk- en bedrijfsdata zit in **EEN** bestand:
+All brand and business data lives in **one** file:
 
 ```
 src/content/settings.json
 ```
 
-Foto's gaan in:
+Capability cards:
+
+```
+src/content/services/*.md
+```
+
+Images go in:
 
 ```
 public/uploads/
 ```
 
-Dienst- en project-pagina's:
-
-```
-src/content/services/*.md
-src/content/projects/*.md
-```
-
 ## Deploy
 
-Via Cloudflare Pages, gekoppeld aan de Git-repo.
+Via Cloudflare Pages, connected to the Git repo.
 Build command: `pnpm build`
 Output dir: `dist`
 
-## Domain
+## Contact form
 
-`https://meratitegelwerken.be` - geconfigureerd via Cloudflare Pages -> Custom Domains.
-
-## Contactformulier
-
-Form-submissions lopen via [Web3Forms](https://web3forms.com).
-Access key staat in `src/content/settings.json` -> `forms.web3formsKey`.
+Form submissions run through [Web3Forms](https://web3forms.com).
+Set your access key in `src/content/settings.json` → `forms.web3formsKey`.
+Without a key, the contact section shows a mailto fallback.

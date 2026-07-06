@@ -2,55 +2,54 @@
 import settings from "../content/settings.json";
 import ContactForm from "./ContactForm.astro";
 const c = settings.contact;
-const phoneHref = c.phone.replace(/\s+/g, "");
+const phoneHref = c.phone?.replace(/\s+/g, "") ?? "";
 ---
 <section id="contact" class="section contact">
   <div class="container">
     <header class="section-head">
-      <span class="eyebrow eyebrow-light" data-anim="reveal">Contact</span>
-      <h2 class="display" data-anim="heading">Klaar om uw project te <em>starten?</em></h2>
-      <p class="section-lead" data-anim="reveal">
-        Vertel ons over uw project. We bellen u terug binnen 24u - meestal sneller.
-      </p>
+      <span class="eyebrow eyebrow-light" data-anim="reveal">{c.sectionEyebrow}</span>
+      <h2 class="display" data-anim="heading">
+        {c.sectionTitleLine1} <em>{c.sectionTitleEmphasis}</em>
+      </h2>
+      <p class="section-lead" data-anim="reveal">{c.sectionLead}</p>
     </header>
 
     <div class="contact-grid">
       <div class="contact-info" data-anim="reveal">
         <ul class="contact-list">
+          {c.phoneDisplay && (
+            <li>
+              <span class="ci-label">Phone</span>
+              <a href={`tel:${phoneHref}`} class="ci-value">{c.phoneDisplay}</a>
+            </li>
+          )}
           <li>
-            <span class="ci-label">Telefoon</span>
-            <a href={`tel:${phoneHref}`} class="ci-value">{c.phoneDisplay}</a>
-          </li>
-          <li>
-            <span class="ci-label">E-mail</span>
+            <span class="ci-label">Email</span>
             <a href={`mailto:${c.email}`} class="ci-value">{c.email}</a>
           </li>
-          <li>
-            <span class="ci-label">Adres</span>
-            <span class="ci-value">{c.address}</span>
-          </li>
-          <li>
-            <span class="ci-label">Werkgebied</span>
-            <span class="ci-value">{c.workArea}</span>
-          </li>
-          <li>
-            <span class="ci-label">Werkuren</span>
-            <span class="ci-value">{c.hours}</span>
-          </li>
+          {c.address && (
+            <li>
+              <span class="ci-label">Address</span>
+              <span class="ci-value">{c.address}</span>
+            </li>
+          )}
+          {c.workArea && (
+            <li>
+              <span class="ci-label">Coverage</span>
+              <span class="ci-value">{c.workArea}</span>
+            </li>
+          )}
+          {c.hours && (
+            <li>
+              <span class="ci-label">Hours</span>
+              <span class="ci-value">{c.hours}</span>
+            </li>
+          )}
         </ul>
 
-        <div class="contact-socials" aria-label="Sociale media">
-          {settings.social.instagram && (
-            <a href={settings.social.instagram} target="_blank" rel="noopener">Instagram</a>
-          )}
-          {settings.social.youtube && (
-            <a href={settings.social.youtube} target="_blank" rel="noopener">YouTube</a>
-          )}
-          {settings.social.tiktok && (
-            <a href={settings.social.tiktok} target="_blank" rel="noopener">TikTok</a>
-          )}
-          {settings.social.facebook && (
-            <a href={settings.social.facebook} target="_blank" rel="noopener">Facebook</a>
+        <div class="contact-socials" aria-label="Social media">
+          {settings.social.linkedin && (
+            <a href={settings.social.linkedin} target="_blank" rel="noopener">LinkedIn</a>
           )}
         </div>
       </div>
