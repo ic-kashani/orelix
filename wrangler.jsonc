@@ -14,5 +14,7 @@
     "binding": "ASSETS",
     "directory": "dist"
   },
-  "secrets": ["RESEND_API_KEY"]
+  "secrets": {
+    "required": ["RESEND_API_KEY"]
+  }
 }
