@@ -94,7 +94,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       text: inquiryText,
     });
 
-    await sendResendEmail(apiKey, {
+    sendResendEmail(apiKey, {
       from,
       to: [email],
       subject: `We received your message — ${settings.business.name}`,
@@ -105,11 +105,16 @@ Thanks for reaching out to ${settings.business.name}. We received your inquiry a
 If your matter is urgent, call us at ${settings.contact.phoneDisplay || settings.contact.phone}.
 
 — The ${settings.business.name} team`,
+    }).catch((err) => {
+      console.warn("[contact confirmation]", err);
     });
 
     return Response.json({ ok: true });
   } catch (err) {
     console.error("[contact]", err);
-    return Response.json({ error: "Failed to send message" }, { status: 500 });
+    return Response.json(
+      { error: "Email provider rejected the message" },
+      { status: 502 },
+    );
   }
 };
