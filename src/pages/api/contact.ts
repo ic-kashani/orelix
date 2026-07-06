@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import settings from "../../content/settings.json";
+import { readSecret } from "../../lib/env";
 
 export const prerender = false;
 
@@ -33,7 +34,7 @@ async function sendResendEmail(
 }
 
 export const POST: APIRoute = async ({ request, locals }) => {
-  const apiKey = locals.runtime?.env?.RESEND_API_KEY;
+  const apiKey = readSecret("RESEND_API_KEY", locals);
   if (!apiKey) {
     return Response.json({ error: "Email service not configured" }, { status: 503 });
   }
@@ -93,7 +94,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       text: inquiryText,
     });
 
-    await sendResendEmail(apiKey, {
+    sendResendEmail(apiKey, {
       from,
       to: [email],
       subject: `We received your message — ${settings.business.name}`,
@@ -104,11 +105,16 @@ Thanks for reaching out to ${settings.business.name}. We received your inquiry a
 If your matter is urgent, call us at ${settings.contact.phoneDisplay || settings.contact.phone}.
 
 — The ${settings.business.name} team`,
+    }).catch((err) => {
+      console.warn("[contact confirmation]", err);
     });
 
     return Response.json({ ok: true });
   } catch (err) {
     console.error("[contact]", err);
-    return Response.json({ error: "Failed to send message" }, { status: 500 });
+    return Response.json(
+      { error: "Email provider rejected the message" },
+      { status: 502 },
+    );
   }
 };
