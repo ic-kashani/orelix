@@ -5,6 +5,10 @@ interface ImportMetaEnv {
   readonly RESEND_API_KEY?: string;
 }
 
+declare module "cloudflare:workers" {
+  export const env: Record<string, unknown>;
+}
+
 type RuntimeEnv = {
   RESEND_API_KEY?: string;
 };

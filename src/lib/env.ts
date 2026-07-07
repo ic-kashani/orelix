@@ -1,19 +1,31 @@
 import type { APIContext } from "astro";
 
-type ProcessEnv = { env?: Record<string, string | undefined> };
+declare const __RESEND_API_KEY__: string | undefined;
 
-/** Server-only secrets from Cloudflare (dashboard Secrets, build vars, or .dev.vars). */
-export function readSecret(key: string, locals?: APIContext["locals"]): string | undefined {
+/** Server-only Resend API key from Cloudflare Workers runtime. */
+export async function getResendApiKey(
+  locals?: APIContext["locals"],
+): Promise<string | undefined> {
+  try {
+    const { env } = await import("cloudflare:workers");
+    const key = env.RESEND_API_KEY;
+    if (typeof key === "string" && key) return key;
+  } catch {
+    /* not on Workers runtime */
+  }
+
   const runtimeEnv = locals?.runtime?.env as Record<string, unknown> | undefined;
-  const fromRuntime = runtimeEnv?.[key];
+  const fromRuntime = runtimeEnv?.RESEND_API_KEY;
   if (typeof fromRuntime === "string" && fromRuntime) return fromRuntime;
 
-  const proc = (globalThis as { process?: ProcessEnv }).process;
-  const fromProcess = proc?.env?.[key];
-  if (typeof fromProcess === "string" && fromProcess) return fromProcess;
+  if (typeof __RESEND_API_KEY__ === "string" && __RESEND_API_KEY__) {
+    return __RESEND_API_KEY__;
+  }
 
-  const fromMeta = import.meta.env[key as keyof ImportMetaEnv];
-  if (typeof fromMeta === "string" && fromMeta) return fromMeta;
+  const proc = (globalThis as { process?: { env?: Record<string, string | undefined> } })
+    .process;
+  const fromProcess = proc?.env?.RESEND_API_KEY;
+  if (typeof fromProcess === "string" && fromProcess) return fromProcess;
 
   return undefined;
 }
