@@ -42,7 +42,7 @@
     "fontBody": "Inter"
   },
   "forms": {
-    "fromEmail": "Orelix <sina.kashani@orelix.be>",
+    "fromEmail": "Orelix <noreply@orelix.be>",
     "fallbackEmail": "sina.kashani@orelix.be"
   },
   "hero": {
