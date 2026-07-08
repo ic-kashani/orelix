@@ -2157,6 +2157,20 @@ a.ci-value:hover {
   .hero-cue {
     display: none;
   }
+  .vision-hero {
+    grid-template-columns: 1fr;
+  }
+  .vision-copy {
+    max-width: 48rem;
+  }
+  .vision-system {
+    min-height: 24rem;
+    width: min(32rem, 82vw);
+    margin-inline: auto;
+  }
+  .vision-sections {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 1024px) {
   .gallery {
@@ -2182,6 +2196,15 @@ a.ci-value:hover {
     grid-template-columns: 1fr;
   }
   .contact-form {
+    grid-template-columns: 1fr;
+  }
+  .vision-manifesto {
+    grid-template-columns: 1fr;
+  }
+  .vision-line--lead {
+    min-height: auto;
+  }
+  .vision-principles ul {
     grid-template-columns: 1fr;
   }
   .gallery {
@@ -2300,6 +2323,47 @@ a.ci-value:hover {
     font-size: 0.6rem;
     letter-spacing: 0.06em;
   }
+  .vision--page {
+    padding-top: calc(var(--header-h) + 1.25rem);
+  }
+  .vision-copy::before {
+    inset: -0.3rem -0.8rem -0.3rem -0.8rem;
+    width: auto;
+    border-left-width: 1px;
+    border-radius: 8px;
+  }
+  .vision--page .vision-title {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+  .vision-system {
+    min-height: 17rem;
+    width: min(19rem, 86vw);
+  }
+  .vision-signal {
+    display: none;
+  }
+  .vision-core {
+    width: 9rem;
+  }
+  .vision-core span {
+    font-size: 3rem;
+  }
+  .vision-manifesto,
+  .vision-principles,
+  .vision-close-panel {
+    padding: 1rem;
+  }
+  .vision-line,
+  .vision-block,
+  .vision-principles li {
+    padding: 0.9rem;
+  }
+  .vision-principles li {
+    padding-left: 2.25rem;
+  }
+  .vision-block-index {
+    margin-bottom: 0.8rem;
+  }
   .contact-shell {
     margin-inline: calc(var(--gutter) * -0.35);
   }
@@ -2382,16 +2446,76 @@ a.ci-value:hover {
 
 /* ----- Vision ----------------------------------------------------------- */
 .vision {
-  background: var(--near-black);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(45, 212, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(124, 92, 255, 0.2), transparent 34%),
+    linear-gradient(180deg, #07152f 0%, #050d1f 54%, #081633 100%);
   color: #fff;
+}
+.vision::before,
+.vision::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+.vision::before {
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(120deg, transparent 0 24%, rgba(45, 212, 255, 0.08) 24% 24.2%, transparent 24.5%),
+    linear-gradient(58deg, transparent 0 72%, rgba(124, 92, 255, 0.08) 72% 72.2%, transparent 72.5%);
+  background-size: 64px 64px, 64px 64px, auto, auto;
+  opacity: 0.72;
+}
+.vision::after {
+  inset: auto 0 0;
+  z-index: -1;
+  height: 38%;
+  background: linear-gradient(90deg, transparent, rgba(64, 224, 160, 0.16), transparent);
+  transform: translateX(-100%);
+  animation: hero-scan 9s linear infinite;
 }
 .vision-inner {
-  max-width: 52rem;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+.vision-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.78fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+.vision-copy {
+  position: relative;
+  max-width: 54rem;
+  padding: clamp(0.75rem, 2vw, 1.4rem) 0;
+}
+.vision-copy::before {
+  content: "";
+  position: absolute;
+  inset: -0.5rem auto -0.5rem -1.25rem;
+  z-index: -1;
+  width: min(72vw, 42rem);
+  border-left: 2px solid rgba(45, 212, 255, 0.48);
+  background:
+    linear-gradient(90deg, rgba(5, 13, 31, 0.6), transparent),
+    linear-gradient(180deg, rgba(45, 212, 255, 0.12), transparent 38%, rgba(124, 92, 255, 0.12));
+  box-shadow: 0 0 54px rgba(45, 212, 255, 0.14);
 }
 .vision-title {
-  margin: 1.25rem 0 2rem;
+  margin: 1rem 0 1.25rem;
   color: #fff;
-  max-width: 16ch;
+  max-width: 15ch;
+  text-shadow:
+    0 0 26px rgba(255, 255, 255, 0.16),
+    0 0 70px rgba(45, 212, 255, 0.18);
 }
 .vision-highlight {
   font-style: italic;
@@ -2399,45 +2523,196 @@ a.ci-value:hover {
   white-space: nowrap;
 }
 .vision-intro {
-  font-size: var(--step-1);
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
   font-weight: 300;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 2.5rem;
   max-width: 52ch;
 }
-.vision-manifesto {
+.vision-system {
+  position: relative;
+  min-height: clamp(22rem, 38vw, 34rem);
   display: grid;
-  gap: 0.85rem;
-  margin-bottom: 2.5rem;
-  padding-left: 1.25rem;
-  border-left: 2px solid rgba(124, 92, 255, 0.45);
+  place-items: center;
+}
+.vision-orbit,
+.vision-core,
+.vision-signal {
+  position: absolute;
+}
+.vision-orbit {
+  inset: 3%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    conic-gradient(from 0deg, transparent, rgba(45, 212, 255, 0.34), transparent 30%, rgba(124, 92, 255, 0.32), transparent 66%, rgba(64, 224, 160, 0.26), transparent);
+  mask-image: radial-gradient(circle, transparent 0 58%, black 59% 62%, transparent 63%);
+  filter: drop-shadow(0 0 24px rgba(45, 212, 255, 0.24));
+  animation: hero-orbit-spin 24s linear infinite;
+}
+.vision-orbit--inner {
+  inset: 22%;
+  animation-duration: 15s;
+  animation-direction: reverse;
+  opacity: 0.86;
+}
+.vision-core {
+  left: 50%;
+  top: 50%;
+  width: clamp(10rem, 18vw, 14rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 25%, rgba(255, 255, 255, 0.7), transparent 16%),
+    radial-gradient(circle, rgba(124, 92, 255, 0.72), rgba(5, 13, 31, 0.82) 64%, rgba(45, 212, 255, 0.25));
+  box-shadow:
+    0 0 58px rgba(45, 212, 255, 0.34),
+    0 0 120px rgba(124, 92, 255, 0.22),
+    inset 0 0 34px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+.vision-core span {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.82;
+}
+.vision-core strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+.vision-signal {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(5, 13, 31, 0.62);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 0 28px rgba(45, 212, 255, 0.16);
+  backdrop-filter: blur(16px);
+  animation: hero-node-float 6s ease-in-out infinite;
+}
+.vision-signal--one {
+  left: 4%;
+  top: 26%;
+}
+.vision-signal--two {
+  right: 3%;
+  top: 20%;
+  animation-delay: -1.6s;
+}
+.vision-signal--three {
+  right: 14%;
+  bottom: 22%;
+  animation-delay: -3.2s;
+}
+.vision-manifesto {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 44%, rgba(5, 13, 31, 0.24)),
+    rgba(5, 13, 31, 0.58);
+  box-shadow:
+    0 30px 82px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(1.15);
+}
+.vision-manifesto::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #2dd4ff, #40e0a0);
+}
+.vision-manifesto-stack {
+  display: grid;
+  gap: 0.75rem;
 }
 .vision-line {
-  font-size: var(--step-1);
+  position: relative;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  font-size: clamp(0.98rem, 1.2vw, 1.15rem);
   font-weight: 300;
   color: rgba(255, 255, 255, 0.88);
   line-height: 1.55;
 }
-.vision-line:first-child {
-  font-size: var(--step-2);
+.vision-line--lead {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  border-color: rgba(45, 212, 255, 0.22);
+  background:
+    linear-gradient(135deg, rgba(45, 212, 255, 0.13), transparent 42%, rgba(124, 92, 255, 0.13)),
+    rgba(255, 255, 255, 0.055);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #fff;
+  line-height: 1.08;
 }
 .vision-sections {
   display: grid;
-  gap: 2rem;
-  margin: 3rem 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 .vision-block {
-  padding: 1.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 1.4rem 1.25rem 1.5rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025)),
+    rgba(5, 13, 31, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.vision-block::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(45, 212, 255, 0.8), transparent);
+}
+.vision-block-index {
+  display: inline-grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(45, 212, 255, 0.28);
+  border-radius: 50%;
+  color: #2dd4ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 0 22px rgba(45, 212, 255, 0.12);
 }
 .vision-block-title {
   font-family: var(--font-display);
-  font-size: var(--step-2);
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  line-height: 1;
   font-weight: 600;
   color: #fff;
   margin-bottom: 0.75rem;
@@ -2450,11 +2725,12 @@ a.ci-value:hover {
   margin: 0;
 }
 .vision-principles {
-  margin: 2.5rem 0;
-  padding: 1.75rem 1.5rem;
-  background: rgba(124, 92, 255, 0.08);
-  border-radius: 12px;
-  border: 1px solid rgba(124, 92, 255, 0.2);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background:
+    linear-gradient(120deg, rgba(124, 92, 255, 0.14), transparent 46%, rgba(64, 224, 160, 0.1)),
+    rgba(255, 255, 255, 0.045);
+  border-radius: 8px;
+  border: 1px solid rgba(124, 92, 255, 0.22);
 }
 .vision-principles-label {
   font-size: var(--step--1);
@@ -2465,11 +2741,15 @@ a.ci-value:hover {
 }
 .vision-principles ul {
   display: grid;
-  gap: 0.85rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
 }
 .vision-principles li {
   position: relative;
-  padding-left: 1.25rem;
+  padding: 0.95rem 1rem 0.95rem 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(5, 13, 31, 0.42);
   font-size: var(--step-0);
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.55;
@@ -2477,20 +2757,36 @@ a.ci-value:hover {
 .vision-principles li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.6em;
+  left: 1rem;
+  top: 1.35rem;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #40e0a0;
+  box-shadow: 0 0 16px rgba(64, 224, 160, 0.45);
+}
+.vision-close-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(45, 212, 255, 0.18), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(5, 13, 31, 0.62);
+  box-shadow:
+    0 30px 84px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 .vision-closing {
   font-family: var(--font-display);
-  font-size: var(--step-2);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
   font-weight: 500;
   color: #fff;
-  max-width: 46ch;
-  line-height: 1.35;
+  max-width: 35ch;
+  line-height: 1.15;
+  margin: 0;
 }
 .vision-closing-line {
   margin-top: 1rem;
@@ -2500,11 +2796,12 @@ a.ci-value:hover {
   color: rgba(255, 255, 255, 0.55);
 }
 .vision--page {
-  padding-top: calc(var(--header-h) + clamp(2.5rem, 6vh, 4rem));
-  padding-bottom: clamp(4rem, 10vh, 6rem);
+  min-height: calc(100svh - var(--header-h));
+  padding-top: calc(var(--header-h) + clamp(2rem, 5vh, 3.5rem));
+  padding-bottom: clamp(3rem, 8vh, 5rem);
 }
 .vision--page .vision-inner {
-  max-width: 44rem;
+  max-width: none;
 }
 .vision--page .vision-title {
   font-size: var(--step-5);
