@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import settings from "../../content/settings.json";
-import { readSecret } from "../../lib/env";
+import { getResendApiKey } from "../../lib/env";
 
 export const prerender = false;
 
@@ -34,7 +34,7 @@ async function sendResendEmail(
 }
 
 export const POST: APIRoute = async ({ request, locals }) => {
-  const apiKey = readSecret("RESEND_API_KEY", locals);
+  const apiKey = await getResendApiKey(locals);
   if (!apiKey) {
     return Response.json({ error: "Email service not configured" }, { status: 503 });
   }
@@ -85,8 +85,26 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const subjectSuffix =
     company !== "—" ? ` — ${name} (${company})` : ` — ${name}`;
 
+  const confirmationText = `Hi ${firstName},
+
+Thanks for reaching out to ${settings.business.name}. We received your inquiry and will get back to you within one business day.
+
+If your matter is urgent, call us at ${settings.contact.phoneDisplay || settings.contact.phone}.
+
+— The ${settings.business.name} team`;
+
   try {
+    // Customer confirmation first so visitors get it within seconds.
     await sendResendEmail(apiKey, {
+      from,
+      to: [email],
+      reply_to: notify,
+      subject: `We received your message — ${settings.business.name}`,
+      text: confirmationText,
+    });
+
+    const runtime = locals.runtime as { ctx?: { waitUntil?: (promise: Promise<unknown>) => void } } | undefined;
+    const notifyPromise = sendResendEmail(apiKey, {
       from,
       to: [notify],
       reply_to: email,
@@ -94,20 +112,15 @@ export const POST: APIRoute = async ({ request, locals }) => {
       text: inquiryText,
     });
 
-    sendResendEmail(apiKey, {
-      from,
-      to: [email],
-      subject: `We received your message — ${settings.business.name}`,
-      text: `Hi ${firstName},
-
-Thanks for reaching out to ${settings.business.name}. We received your inquiry and will get back to you within one business day.
-
-If your matter is urgent, call us at ${settings.contact.phoneDisplay || settings.contact.phone}.
-
-— The ${settings.business.name} team`,
-    }).catch((err) => {
-      console.warn("[contact confirmation]", err);
-    });
+    if (runtime?.ctx?.waitUntil) {
+      runtime.ctx.waitUntil(
+        notifyPromise.catch((err) => {
+          console.error("[contact notify]", err);
+        }),
+      );
+    } else {
+      await notifyPromise;
+    }
 
     return Response.json({ ok: true });
   } catch (err) {

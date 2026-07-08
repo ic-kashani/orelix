@@ -13,6 +13,7 @@ const hasLogo = Boolean(settings.business.logo);
 const logoTag = settings.business.logoTag;
 ---
 <footer class="site-footer">
+  <div class="footer-wordmark" aria-hidden="true">ORELIX</div>
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="/" class={`logo${hasLogo ? " logo--lockup" : ""}`} aria-label={settings.business.name}>

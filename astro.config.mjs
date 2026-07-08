@@ -17,5 +17,11 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
 
-  adapter: cloudflare()
+  adapter: cloudflare(),
+
+  vite: {
+    define: {
+      __RESEND_API_KEY__: JSON.stringify(process.env.RESEND_API_KEY ?? ""),
+    },
+  },
 });
