@@ -3,6 +3,7 @@ import settings from "../content/settings.json";
 
 const w = settings.whatWeDo;
 const outcomes = ["Time returned", "Costs reduced", "Growth unlocked"];
+const geo = w.geo;
 ---
 <section id="what-we-do" class="section what-we-do">
   <div class="container">
@@ -88,6 +89,21 @@ const outcomes = ["Time returned", "Costs reduced", "Growth unlocked"];
       </div>
 
       <p class="what-we-do-closing" data-anim="reveal">{w.closing}</p>
+
+      {geo && (
+        <div class="geo-panel" data-anim="reveal">
+          <div class="geo-panel-copy">
+            <span class="geo-eyebrow">{geo.eyebrow}</span>
+            <h3>{geo.title}</h3>
+            <p>{geo.body}</p>
+          </div>
+          <ul class="geo-tags" aria-label="AI search optimization focus areas">
+            {geo.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   </div>
 </section>
