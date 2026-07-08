@@ -8,29 +8,53 @@ interface Props {
 const { asPage = false } = Astro.props;
 const v = settings.vision;
 const Tag = asPage ? "h1" : "h2";
+const manifestoLead = v.manifesto[0];
+const manifestoRest = v.manifesto.slice(1);
 ---
 <section id="vision" class={`section vision${asPage ? " vision--page" : ""}`}>
   <div class="container">
     <div class="vision-inner">
-      <span class="eyebrow eyebrow-light" data-anim="reveal">{v.eyebrow}</span>
-      <Tag class="display vision-title" data-anim="heading">
-        {v.titlePrefix}{" "}<em class="vision-highlight">{v.titleHighlight}</em>
-      </Tag>
+      <div class="vision-hero">
+        <div class="vision-copy">
+          <span class="eyebrow eyebrow-light" data-anim="reveal">{v.eyebrow}</span>
+          <Tag class="display vision-title" data-anim="heading">
+            {v.titlePrefix}{" "}<em class="vision-highlight">{v.titleHighlight}</em>
+          </Tag>
 
-      {v.intro && (
-        <p class="vision-intro" data-anim="reveal">{v.intro}</p>
-      )}
+          {v.intro && (
+            <p class="vision-intro" data-anim="reveal">{v.intro}</p>
+          )}
+        </div>
 
-      <div class="vision-manifesto" data-anim="reveal" aria-label="Our manifesto">
-        {v.manifesto.map((line) => (
-          <p class="vision-line">{line}</p>
-        ))}
+        <div class="vision-system" data-anim="reveal" aria-hidden="true">
+          <div class="vision-orbit vision-orbit--outer"></div>
+          <div class="vision-orbit vision-orbit--inner"></div>
+          <div class="vision-core">
+            <span>AI</span>
+            <strong>Human-led</strong>
+          </div>
+          <span class="vision-signal vision-signal--one">Judgment</span>
+          <span class="vision-signal vision-signal--two">Automation</span>
+          <span class="vision-signal vision-signal--three">Growth</span>
+        </div>
       </div>
+
+      {manifestoLead && (
+        <div class="vision-manifesto" data-anim="reveal" aria-label="Our manifesto">
+          <p class="vision-line vision-line--lead">{manifestoLead}</p>
+          <div class="vision-manifesto-stack">
+            {manifestoRest.map((line) => (
+              <p class="vision-line">{line}</p>
+            ))}
+          </div>
+        </div>
+      )}
 
       {asPage && v.sections && (
         <div class="vision-sections" data-anim="reveal">
-          {v.sections.map((section) => (
+          {v.sections.map((section, index) => (
             <article class="vision-block">
+              <span class="vision-block-index">0{index + 1}</span>
               <h2 class="vision-block-title">{section.title}</h2>
               <p class="vision-block-body">{section.body}</p>
             </article>
@@ -49,16 +73,18 @@ const Tag = asPage ? "h1" : "h2";
         </div>
       )}
 
-      <p class="vision-closing" data-anim="reveal">{v.closing}</p>
-      {v.closingLine && (
-        <p class="vision-closing-line" data-anim="reveal">{v.closingLine}</p>
-      )}
+      <div class="vision-close-panel" data-anim="reveal">
+        <p class="vision-closing">{v.closing}</p>
+        {v.closingLine && (
+          <p class="vision-closing-line">{v.closingLine}</p>
+        )}
 
-      {asPage && (
-        <a href="/#contact" class="btn btn-primary btn-lg vision-cta" data-anim="reveal">
-          Book a Discovery Call
-        </a>
-      )}
+        {asPage && (
+          <a href="/#contact" class="btn btn-primary btn-lg vision-cta">
+            Book a Discovery Call
+          </a>
+        )}
+      </div>
     </div>
   </div>
 </section>
