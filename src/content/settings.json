@@ -109,7 +109,18 @@
       "Reporting",
       "Administration"
     ],
-    "closing": "Instead of hiring another employee for repetitive work, we build AI employees that perform these tasks autonomously and integrate with your existing software."
+    "closing": "Instead of hiring another employee for repetitive work, we build AI employees that perform these tasks autonomously and integrate with your existing software.",
+    "geo": {
+      "eyebrow": "AI Search ready",
+      "title": "Built to be found in ChatGPT, Gemini, and the next generation of search.",
+      "body": "We also prepare your business for GEO (Generative Engine Optimization): the way companies stay visible when customers ask AI tools for solutions like AI receptionists, AI sales employees, workflow automation, customer support automation, and digital workforce partners.",
+      "items": [
+        "Generative Engine Optimization",
+        "AI Search visibility",
+        "ChatGPT and Gemini discovery",
+        "High-intent automation keywords"
+      ]
+    }
   },
   "services": {
     "eyebrow": "Our services",
