@@ -134,7 +134,7 @@ ul {
 .display {
   font-family: var(--font-display);
   font-weight: 500;
-  line-height: 0.98;
+  line-height: 1.08;
   letter-spacing: -0.01em;
   font-size: var(--step-4);
 }
@@ -163,7 +163,8 @@ ul {
 }
 .split-line {
   overflow: hidden;
-  padding-block: 0.04em;
+  padding-block: 0.04em 0.18em;
+  margin-bottom: -0.08em;
 }
 
 /* prevent FOUC for animated headings/words — only when JS is available,
