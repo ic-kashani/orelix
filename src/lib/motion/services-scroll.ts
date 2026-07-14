@@ -4,13 +4,21 @@ import { prefersReducedMotion, isSmallScreen } from "./env";
 // Pin the services section and translate the track horizontally as the user
 // scrolls vertically. On small screens / reduced-motion we leave the native
 // vertical (or scroll-snap) layout untouched.
+let initialized = false;
+
 export function initServicesScroll(): void {
   const section = document.querySelector<HTMLElement>("[data-services]");
   const track = document.querySelector<HTMLElement>("[data-services-track]");
   if (!section || !track) return;
 
+  if (initialized) {
+    ScrollTrigger.refresh();
+    return;
+  }
+
   if (prefersReducedMotion() || isSmallScreen()) {
     section.classList.add("services--stacked");
+    initialized = true;
     return;
   }
 
@@ -68,4 +76,9 @@ export function initServicesScroll(): void {
   }
 
   ScrollTrigger.refresh();
+  initialized = true;
+
+  // Image dimensions and late font loading can change the track width after
+  // the initial setup. Refresh once more when the page is fully ready.
+  window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
 }
