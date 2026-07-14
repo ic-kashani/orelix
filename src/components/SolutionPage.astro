@@ -1,0 +1,64 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  points: string[];
+  problemTitle: string;
+  problem: string[];
+  steps: { title: string; body: string }[];
+  related: { href: string; label: string }[];
+}
+
+const { eyebrow, title, lead, points, problemTitle, problem, steps, related } = Astro.props;
+---
+
+<main id="main" class="solution-page">
+  <section class="solution-hero">
+    <div class="container solution-hero-grid">
+      <div>
+        <span class="eyebrow eyebrow-light">{eyebrow}</span>
+        <h1 class="display">{title}</h1>
+        <p class="section-lead">{lead}</p>
+      </div>
+      <ul class="solution-points" aria-label="Wat dit oplevert">
+        {points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="solution-section">
+    <div class="container">
+      <div class="solution-copy">
+        <span class="eyebrow">Praktisch bekeken</span>
+        <h2 class="display">{problemTitle}</h2>
+        {problem.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <div class="solution-steps">
+        {steps.map((step, index) => (
+          <article class="solution-step">
+            <span class="solution-step-number">0{index + 1}</span>
+            <h2>{step.title}</h2>
+            <p>{step.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="solution-links" aria-label="Lees ook">
+        {related.map((link) => <a href={link.href}>{link.label} &rarr;</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <span class="eyebrow eyebrow-light">Gratis analyse</span>
+        <h2 class="display">Ontdek waar uw werking sneller kan.</h2>
+        <p class="section-lead">We bekijken samen welke repetitieve taken tijd kosten of ervoor zorgen dat aanvragen blijven liggen.</p>
+      </div>
+      <a href="/#contact" class="btn btn-primary btn-lg">Plan een gratis analyse</a>
+    </div>
+  </section>
+</main>

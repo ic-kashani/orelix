@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SolutionPage from "../components/SolutionPage.astro";
+---
+<Base title="E-mails en administratie automatiseren" description="Verminder repetitief administratief werk en behandel e-mails sneller. Praktische automatisatie voor Belgische kmo's.">
+  <Header />
+  <SolutionPage
+    eyebrow="E-mails en administratie automatiseren"
+    title="Minder kopiëren. Meer tijd voor klanten."
+    lead="Uw mailbox en administratie hoeven geen eindeloze to-dolijst te zijn. Orelix helpt terugkerende taken slimmer doorstromen, met uw team in controle."
+    points={["Minder manueel sorteer- en zoekwerk", "Sneller antwoord op gewone klantvragen", "Duidelijkere overdracht binnen uw team"]}
+    problemTitle="Niet elke e-mail vraagt dezelfde aandacht."
+    problem={["Veel tijd verdwijnt in berichten lezen, gegevens opnieuw intikken, documenten zoeken en taken doorsturen. Dat werk is nodig, maar niet altijd manueel.", "We kijken welke vragen en administratieve stappen vaak terugkomen. Daarna bouwen we alleen wat past bij uw bestaande tools en afspraken. Zo blijft de werking herkenbaar voor uw team."]}
+    steps={[
+      { title: "Terugkerend werk herkennen", body: "We brengen de e-mails, documenten en handelingen in kaart die elke week opnieuw tijd vragen." },
+      { title: "De juiste route bepalen", body: "Informatie gaat naar de juiste persoon, lijst of volgende stap zonder dat iemand alles opnieuw moet overtypen." },
+      { title: "Controle behouden", body: "Uw medewerkers houden zicht op belangrijke communicatie en kunnen altijd bijsturen waar dat nodig is." },
+    ]}
+    related={[{ href: "/offerte-opvolging-automatiseren", label: "Offerteopvolging automatiseren" }, { href: "/automatisatie-installatiebedrijven", label: "Automatisatie voor installatiebedrijven" }]}
+  />
+  <Footer />
+</Base>
