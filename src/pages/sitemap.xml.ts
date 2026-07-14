@@ -10,6 +10,8 @@ const paths = [
   "/e-mails-en-administratie-automatiseren",
   "/automatisatie-installatiebedrijven",
   "/how-we-work",
+  "/over-orelix",
+  "/privacy",
 ];
 
 export const GET: APIRoute = () => {

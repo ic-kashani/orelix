@@ -7,10 +7,12 @@ interface Props {
   problemTitle: string;
   problem: string[];
   steps: { title: string; body: string }[];
+  situations: { title: string; body: string }[];
+  faq: { question: string; answer: string }[];
   related: { href: string; label: string }[];
 }
 
-const { eyebrow, title, lead, points, problemTitle, problem, steps, related } = Astro.props;
+const { eyebrow, title, lead, points, problemTitle, problem, steps, situations, faq, related } = Astro.props;
 ---
 
 <main id="main" class="solution-page">
@@ -47,6 +49,42 @@ const { eyebrow, title, lead, points, problemTitle, problem, steps, related } = 
 
       <div class="solution-links" aria-label="Lees ook">
         {related.map((link) => <a href={link.href}>{link.label} &rarr;</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="solution-section solution-section--soft">
+    <div class="container">
+      <div class="solution-copy">
+        <span class="eyebrow">Herkenbaar in de praktijk</span>
+        <h2 class="display">Waar automatisatie concreet helpt.</h2>
+        <p>We beginnen niet bij software, maar bij situaties die uw medewerkers en klanten vandaag echt ervaren.</p>
+      </div>
+      <div class="solution-situations">
+        {situations.map((situation) => (
+          <article class="solution-situation">
+            <h2>{situation.title}</h2>
+            <p>{situation.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="solution-section solution-faq">
+    <div class="container solution-faq-grid">
+      <div class="solution-copy">
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2 class="display">Duidelijk voor u begint.</h2>
+        <p>Elke werking is anders. Deze antwoorden geven u alvast een realistisch beeld van hoe Orelix te werk gaat.</p>
+      </div>
+      <div class="solution-faq-list">
+        {faq.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>

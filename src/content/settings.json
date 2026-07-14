@@ -66,7 +66,7 @@
     "ogImage": "/uploads/logo.png"
   },
   "hero": {
-    "image": "/uploads/hero.png",
+    "image": "/uploads/hero.webp",
     "eyebrow": "Voor Belgische kmo's die tijd verliezen aan administratie",
     "eyebrowShort": "Voor kmo's",
     "titleLine1": "Sneller antwoorden.",
@@ -78,16 +78,16 @@
     "ctaSecondaryHref": "/#services",
     "stats": [
       {
-        "value": "5-10u",
-        "label": "per week terugwinnen"
+        "value": "Analyse",
+        "label": "van uw huidige proces"
       },
       {
-        "value": "24/7",
-        "label": "vragen opgevangen"
+        "value": "Controle",
+        "label": "blijft bij uw team"
       },
       {
-        "value": "100%",
-        "label": "in uw werkwijze"
+        "value": "Koppeling",
+        "label": "met uw bestaande tools"
       }
     ]
   },
@@ -150,23 +150,7 @@
         "Keywords met aankoopintentie"
       ]
     },
-    "proof": [
-      {
-        "value": "5-10u",
-        "label": "per week mogelijk vrij te maken",
-        "detail": "Voorbeeldcase: installateur met veel offerte- en planningsmails."
-      },
-      {
-        "value": "30%",
-        "label": "snellere opvolging als doel",
-        "detail": "Placeholder: offertevragen automatisch registreren en herinneren."
-      },
-      {
-        "value": "0",
-        "label": "gemiste aanvragen als ambitie",
-        "detail": "Placeholder testimonial: \"We zien eindelijk elke aanvraag op tijd.\""
-      }
-    ]
+    "proof": []
   },
   "services": {
     "eyebrow": "Oplossingen",

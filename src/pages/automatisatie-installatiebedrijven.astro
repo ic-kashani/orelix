@@ -3,8 +3,29 @@ import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SolutionPage from "../components/SolutionPage.astro";
+
+const situations = [
+  { title: "Een nieuwe aanvraag komt binnen", body: "Contactgegevens, locatie, type werk en beschikbare foto's worden overzichtelijk verzameld voordat iemand de klant terugbelt." },
+  { title: "Kantoor en techniek missen context", body: "De informatie die buiten of telefonisch wordt verzameld, kan op een vaste plek terechtkomen zodat collega's niet opnieuw moeten zoeken of navragen." },
+  { title: "Een voorstel vraagt opvolging", body: "Openstaande offertes en afgesproken contactmomenten blijven zichtbaar, ook wanneer de agenda druk is." },
+];
+const faq = [
+  { question: "Is dit alleen geschikt voor grote installatiebedrijven?", answer: "Nee. Ook een kleine technische kmo kan voordeel halen uit één duidelijke automatisatie, bijvoorbeeld voor nieuwe aanvragen of offerteopvolging." },
+  { question: "Kunnen techniekers mobiel blijven werken?", answer: "Ja. De oplossing wordt rond de dagelijkse realiteit gebouwd. We vermijden extra administratie op het terrein en gebruiken waar mogelijk bestaande formulieren, mailboxen of mobiele tools." },
+  { question: "Kan planning volledig automatisch?", answer: "Planning kan gedeeltelijk worden ondersteund, bijvoorbeeld door gegevens te verzamelen of afspraken voor te bereiden. Capaciteit, reistijd en uitzonderingen bepalen hoeveel menselijke controle wenselijk blijft." },
+  { question: "Hoe starten we zonder onze werking te verstoren?", answer: "We kiezen één afgebakend proces, testen dat met een kleine groep en sturen bij. Pas wanneer het betrouwbaar werkt, breiden we verder uit." },
+];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
 ---
-<Base title="Automatisatie voor installatiebedrijven" description="Praktische automatisatie voor installateurs: sneller reageren op aanvragen, beter offertes opvolgen en meer overzicht in planning en administratie.">
+<Base title="Automatisatie voor installatiebedrijven" description="Praktische automatisatie voor installateurs: sneller reageren op aanvragen, beter offertes opvolgen en meer overzicht in planning en administratie." structuredData={faqSchema}>
   <Header />
   <SolutionPage
     eyebrow="Voor installatiebedrijven"
@@ -18,6 +39,8 @@ import SolutionPage from "../components/SolutionPage.astro";
       { title: "Kantoor en planning verbinden", body: "De juiste informatie komt sneller bij de juiste persoon, van eerste vraag tot afspraak of interventie." },
       { title: "Offertes niet vergeten", body: "Openstaande voorstellen blijven zichtbaar, zodat uw team op het juiste moment kan opvolgen." },
     ]}
+    situations={situations}
+    faq={faq}
     related={[{ href: "/offerte-opvolging-automatiseren", label: "Offerteopvolging automatiseren" }, { href: "/e-mails-en-administratie-automatiseren", label: "E-mails en administratie automatiseren" }]}
   />
   <Footer />

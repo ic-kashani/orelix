@@ -6,9 +6,10 @@ import Preloader from "../components/Preloader.astro";
 interface Props {
   title?: string;
   description?: string;
+  structuredData?: Record<string, unknown>;
 }
 
-const { title, description } = Astro.props;
+const { title, description, structuredData } = Astro.props;
 const pageTitle = title
   ? title.endsWith(`| ${settings.business.name}`)
     ? title
@@ -21,6 +22,7 @@ const siteUrl = (
 ).replace(/\/$/, "");
 const canonicalUrl = new URL(Astro.url.pathname, `${siteUrl}/`).toString();
 const socialImage = new URL(settings.seo.ogImage, `${siteUrl}/`).toString();
+const isHome = Astro.url.pathname === "/";
 const organizationSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -82,7 +84,13 @@ const organizationSchema = {
 
     <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    {structuredData && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+    {isHome && (
+      <link rel="preload" as="image" href={settings.hero.image} type="image/webp" fetchpriority="high" />
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
