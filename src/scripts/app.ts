@@ -48,5 +48,9 @@ export function initApp(): void {
         forceRevealPage();
         safe("hero-intro", () => playHeroIntro());
       });
+
+    window.addEventListener("load", () => safe("services-refresh", () => initServicesScroll()), {
+      once: true,
+    });
   });
 }
