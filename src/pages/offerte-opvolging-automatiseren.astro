@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SolutionPage from "../components/SolutionPage.astro";
+---
+<Base title="Offerteopvolging automatiseren" description="Reageer sneller op offerteaanvragen en volg offertes consequent op. Orelix helpt Belgische kmo's minder kansen te missen.">
+  <Header />
+  <SolutionPage
+    eyebrow="Offerteopvolging automatiseren"
+    title="Geen offerte meer laten afkoelen."
+    lead="Wanneer een aanvraag snel en goed wordt opgevolgd, vergroot de kans dat u de klant binnenhaalt. Orelix brengt aanvragen, antwoorden en herinneringen samen in een praktische flow."
+    points={["Sneller reageren op nieuwe aanvragen", "Duidelijke opvolging zonder lijstjes", "Meer zicht op welke offertes aandacht vragen"]}
+    problemTitle="Een offerte versturen is pas het begin."
+    problem={["In veel kmo's komen aanvragen via e-mail, formulieren en telefoon binnen. Daarna ontbreekt vaak tijd om elke offerte op het juiste moment op te volgen. Dat kost niet alleen administratie, maar ook klanten.", "Wij maken van die losse stappen een overzichtelijke werkwijze: de juiste gegevens komen samen, uw team weet wat er moet gebeuren en de klant krijgt sneller antwoord."]}
+    steps={[
+      { title: "Aanvragen samenbrengen", body: "Nieuwe vragen uit mailboxen of formulieren worden zichtbaar op een plek waar uw team ermee kan werken." },
+      { title: "Sneller voorbereiden", body: "We helpen terugkerende informatie, documenten en volgende stappen klaarzetten voor uw medewerkers." },
+      { title: "Opvolgen op het juiste moment", body: "Uw team krijgt overzicht over openstaande offertes, zodat interessante kansen niet stilvallen." },
+    ]}
+    related={[{ href: "/e-mails-en-administratie-automatiseren", label: "E-mails en administratie automatiseren" }, { href: "/automatisatie-installatiebedrijven", label: "Automatisatie voor installatiebedrijven" }]}
+  />
+  <Footer />
+</Base>

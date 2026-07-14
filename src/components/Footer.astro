@@ -5,7 +5,7 @@ const c = settings.contact;
 const phoneHref = c.phone?.replace(/\s+/g, "") ?? "";
 const nav = [
   { href: "/vision", label: "Onze aanpak" },
-  { href: "/#services", label: "Oplossingen" },
+  { href: "/oplossingen", label: "Oplossingen" },
   { href: "/how-we-work", label: "Werkwijze" },
   { href: "/#industries", label: "Sectoren" },
   { href: "/#contact", label: "Contact" },
@@ -46,6 +46,15 @@ const logoTag = settings.business.logoTag;
       <h4>Navigatie</h4>
       <ul>
         {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Waarmee we helpen</h4>
+      <ul>
+        <li><a href="/offerte-opvolging-automatiseren">Offertes opvolgen</a></li>
+        <li><a href="/e-mails-en-administratie-automatiseren">E-mails en administratie</a></li>
+        <li><a href="/automatisatie-installatiebedrijven">Voor installatiebedrijven</a></li>
       </ul>
     </div>
 

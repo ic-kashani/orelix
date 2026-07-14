@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const solutions = [
+  {
+    href: "/offerte-opvolging-automatiseren",
+    eyebrow: "Offertes en aanvragen",
+    title: "Meer opvolging, minder gemiste kansen.",
+    text: "Breng offerteaanvragen samen, reageer sneller en herinner op het juiste moment zonder alles manueel bij te houden.",
+  },
+  {
+    href: "/e-mails-en-administratie-automatiseren",
+    eyebrow: "E-mails en administratie",
+    title: "Minder tijd kwijt aan terugkerend werk.",
+    text: "Laat inkomende e-mails, documenten en administratieve taken slimmer doorstromen naar de juiste persoon of volgende stap.",
+  },
+  {
+    href: "/automatisatie-installatiebedrijven",
+    eyebrow: "Installateurs en technische kmo's",
+    title: "Van aanvraag tot interventie met meer overzicht.",
+    text: "Maak opvolging, planning en communicatie met klanten eenvoudiger zonder uw bestaande manier van werken om te gooien.",
+  },
+];
+---
+<Base title="Automatisatie voor Belgische kmo's" description="Praktische automatisatie voor offerteopvolging, e-mails, administratie, planning en klantvragen bij Belgische kmo's.">
+  <Header />
+  <main id="main" class="solution-page">
+    <section class="solution-hero">
+      <div class="container solution-hero-grid">
+        <div>
+          <span class="eyebrow eyebrow-light">Oplossingen voor kmo's</span>
+          <h1 class="display">Meer gedaan krijgen, zonder meer administratie.</h1>
+          <p class="section-lead">Orelix helpt Belgische kmo's sneller antwoorden, beter opvolgen en terugkerend werk slimmer organiseren.</p>
+        </div>
+        <ul class="solution-points" aria-label="Onze focus">
+          <li>Offertes en aanvragen</li>
+          <li>E-mails en administratie</li>
+          <li>Planning en klantopvolging</li>
+        </ul>
+      </div>
+    </section>
+    <section class="solution-section">
+      <div class="container">
+        <div class="solution-copy">
+          <span class="eyebrow">Waar we beginnen</span>
+          <h2 class="display">De taken die elke dag opnieuw tijd vragen.</h2>
+          <p>Geen standaardpakket en geen technisch verhaal om het technisch verhaal. We starten bij waar uw team vandaag tijd verliest of waar klanten te lang op antwoord wachten.</p>
+        </div>
+        <div class="solutions-grid">
+          {solutions.map((solution) => (
+            <article class="solution-card">
+              <span class="eyebrow">{solution.eyebrow}</span>
+              <h2>{solution.title}</h2>
+              <p>{solution.text}</p>
+              <a href={solution.href} class="text-link">Bekijk deze oplossing &rarr;</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div>
+          <span class="eyebrow eyebrow-light">Gratis analyse</span>
+          <h2 class="display">We zoeken samen uw grootste tijdverlies.</h2>
+          <p class="section-lead">Vertel hoe aanvragen, e-mails en opvolging vandaag lopen. Dan bekijken we welke stap het eerst rendeert.</p>
+        </div>
+        <a href="/#contact" class="btn btn-primary btn-lg">Plan een gratis analyse</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

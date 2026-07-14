@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SolutionPage from "../components/SolutionPage.astro";
+---
+<Base title="Automatisatie voor installatiebedrijven" description="Praktische automatisatie voor installateurs: sneller reageren op aanvragen, beter offertes opvolgen en meer overzicht in planning en administratie.">
+  <Header />
+  <SolutionPage
+    eyebrow="Voor installatiebedrijven"
+    title="Meer overzicht tussen aanvraag en interventie."
+    lead="Installateurs en technische kmo's verliezen vaak tijd tussen de eerste klantvraag, de offerte, de planning en de opvolging. Orelix helpt die stappen beter op elkaar aansluiten."
+    points={["Sneller reageren wanneer een klant contact opneemt", "Minder losse berichten tussen kantoor en terrein", "Beter overzicht over offertes en planning"]}
+    problemTitle="Uw team moet op locatie werken, niet achter e-mails aan."
+    problem={["Wanneer aanvragen, foto's, afspraken en offertes verspreid zitten over mailboxen en telefoons, blijft er te veel werk hangen bij het kantoor. Intussen wacht de klant op antwoord of een voorstel.", "We helpen technische kmo's een duidelijke stroom maken van klantvraag tot volgende actie. Dat geeft het team meer overzicht en maakt snelle, professionele opvolging haalbaar."]}
+    steps={[
+      { title: "Aanvragen helder registreren", body: "Gegevens uit nieuwe klantvragen worden bruikbaar verzameld, zodat uw team niet telkens dezelfde informatie hoeft na te vragen." },
+      { title: "Kantoor en planning verbinden", body: "De juiste informatie komt sneller bij de juiste persoon, van eerste vraag tot afspraak of interventie." },
+      { title: "Offertes niet vergeten", body: "Openstaande voorstellen blijven zichtbaar, zodat uw team op het juiste moment kan opvolgen." },
+    ]}
+    related={[{ href: "/offerte-opvolging-automatiseren", label: "Offerteopvolging automatiseren" }, { href: "/e-mails-en-administratie-automatiseren", label: "E-mails en administratie automatiseren" }]}
+  />
+  <Footer />
+</Base>
