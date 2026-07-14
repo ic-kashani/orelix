@@ -8,7 +8,6 @@ import { initServicesScroll } from "../lib/motion/services-scroll";
 import { initLightbox } from "../lib/motion/lightbox";
 import { initPreloader } from "../lib/motion/preloader";
 import { playHeroIntro } from "../lib/motion/hero";
-import { initHeroWebGL } from "../lib/motion/hero-webgl";
 
 function safe(label: string, fn: () => void): void {
   try {
@@ -27,6 +26,31 @@ function forceRevealPage(): void {
   }
 }
 
+function initDeferredHeroWebGL(): void {
+  const connection = (navigator as Navigator & {
+    connection?: { saveData?: boolean; effectiveType?: string };
+  }).connection;
+  const slowConnection = connection?.saveData || connection?.effectiveType === "2g";
+
+  if (slowConnection || window.matchMedia("(max-width: 860px)").matches) return;
+
+  const load = () => {
+    import("../lib/motion/hero-webgl")
+      .then(({ initHeroWebGL }) => initHeroWebGL())
+      .catch((err) => console.error("[motion] webgl failed:", err));
+  };
+
+  const requestIdle = (window as Window & {
+    requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+  }).requestIdleCallback;
+
+  if (requestIdle) {
+    requestIdle(load, { timeout: 2200 });
+  } else {
+    globalThis.setTimeout(load, 1200);
+  }
+}
+
 export function initApp(): void {
   onReady(() => {
     const failsafe = window.setTimeout(forceRevealPage, 4000);
@@ -39,7 +63,7 @@ export function initApp(): void {
     safe("services", () => initServicesScroll());
     safe("lightbox", () => initLightbox());
 
-    initHeroWebGL().catch((err) => console.error("[motion] webgl failed:", err));
+    initDeferredHeroWebGL();
 
     initPreloader()
       .catch((err) => console.error("[motion] preloader failed:", err))

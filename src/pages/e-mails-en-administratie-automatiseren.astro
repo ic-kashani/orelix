@@ -3,8 +3,29 @@ import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SolutionPage from "../components/SolutionPage.astro";
+
+const situations = [
+  { title: "Dezelfde vragen komen terug", body: "Veelgestelde klantvragen kunnen sneller een passend antwoord of een correcte volgende stap krijgen, terwijl uitzonderingen bij uw team terechtkomen." },
+  { title: "Gegevens worden dubbel ingevoerd", body: "Informatie uit e-mails, formulieren of documenten kan naar de juiste lijst of toepassing doorstromen zonder telkens opnieuw te kopiëren." },
+  { title: "Documenten raken verspreid", body: "Bijlagen kunnen volgens vaste afspraken worden benoemd, gesorteerd en gekoppeld aan het juiste dossier of proces." },
+];
+const faq = [
+  { question: "Welke administratieve taken kunnen worden geautomatiseerd?", answer: "Vooral taken met duidelijke, terugkerende stappen: e-mails sorteren, gegevens overnemen, documenten verwerken, taken toewijzen en herinneringen klaarzetten." },
+  { question: "Kan Orelix met onze huidige software werken?", answer: "Vaak wel. We onderzoeken eerst welke koppelingen uw mailbox, CRM, planning of documentomgeving ondersteunt voordat we een oplossing voorstellen." },
+  { question: "Wat gebeurt er met gevoelige gegevens?", answer: "We beperken toegang tot wat nodig is, spreken verantwoordelijkheden vooraf af en houden menselijke controle bij belangrijke communicatie of beslissingen." },
+  { question: "Moet alles tegelijk worden geautomatiseerd?", answer: "Nee. We starten bij één duidelijk proces met merkbare impact. Zo kan uw team rustig testen en beslissen welke volgende stap zinvol is." },
+];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
 ---
-<Base title="E-mails en administratie automatiseren" description="Verminder repetitief administratief werk en behandel e-mails sneller. Praktische automatisatie voor Belgische kmo's.">
+<Base title="E-mails en administratie automatiseren" description="Verminder repetitief administratief werk en behandel e-mails sneller. Praktische automatisatie voor Belgische kmo's." structuredData={faqSchema}>
   <Header />
   <SolutionPage
     eyebrow="E-mails en administratie automatiseren"
@@ -18,6 +39,8 @@ import SolutionPage from "../components/SolutionPage.astro";
       { title: "De juiste route bepalen", body: "Informatie gaat naar de juiste persoon, lijst of volgende stap zonder dat iemand alles opnieuw moet overtypen." },
       { title: "Controle behouden", body: "Uw medewerkers houden zicht op belangrijke communicatie en kunnen altijd bijsturen waar dat nodig is." },
     ]}
+    situations={situations}
+    faq={faq}
     related={[{ href: "/offerte-opvolging-automatiseren", label: "Offerteopvolging automatiseren" }, { href: "/automatisatie-installatiebedrijven", label: "Automatisatie voor installatiebedrijven" }]}
   />
   <Footer />

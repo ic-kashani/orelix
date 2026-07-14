@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import settings from "../content/settings.json";
+
+const c = settings.contact;
+---
+<Base title="Over Orelix" description="Orelix helpt Belgische kmo's repetitieve administratie, offerteopvolging, e-mails en planning praktisch automatiseren.">
+  <Header />
+  <main id="main" class="info-page">
+    <section class="info-hero">
+      <div class="container info-hero-inner">
+        <span class="eyebrow eyebrow-light">Over Orelix</span>
+        <h1 class="display">Praktische automatisatie, helder uitgelegd.</h1>
+        <p class="section-lead">Orelix helpt Belgische kmo's sneller antwoorden, beter opvolgen en minder tijd verliezen aan terugkerende administratie.</p>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container info-grid">
+        <div class="info-copy">
+          <span class="eyebrow">Waarom Orelix</span>
+          <h2 class="display">Technologie moet uw werking eenvoudiger maken.</h2>
+          <p>Veel automatisatieprojecten starten bij een tool. Orelix start bij uw dagelijkse werk: welke aanvragen blijven liggen, welke gegevens worden dubbel ingevoerd en waar wachten klanten te lang op antwoord?</p>
+          <p>We brengen dat proces samen met uw team in kaart. Daarna kiezen we een afgebakende eerste stap die controleerbaar en bruikbaar is. Uw medewerkers blijven beslissen waar menselijke kennis of goedkeuring nodig is.</p>
+        </div>
+        <div class="info-principles">
+          <article><strong>01</strong><h2>Probleem eerst</h2><p>We automatiseren alleen een taak wanneer duidelijk is welk tijdverlies, risico of opvolgingsprobleem ze oplost.</p></article>
+          <article><strong>02</strong><h2>Menselijke controle</h2><p>Belangrijke communicatie en beslissingen blijven bij uw team. Automatisatie ondersteunt, maar neemt verantwoordelijkheid niet zomaar over.</p></article>
+          <article><strong>03</strong><h2>Bouwen rond uw tools</h2><p>We onderzoeken eerst wat mogelijk is met uw huidige mailbox, CRM, planning en documenten.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section info-section--soft">
+      <div class="container contact-facts">
+        <div>
+          <span class="eyebrow">Rechtstreeks contact</span>
+          <h2 class="display">Een vraag over uw werking?</h2>
+          <p>Leg kort uit waar uw team vandaag tijd of klanten verliest. U krijgt een concreet gesprek over wat wel en niet zinvol is om te automatiseren.</p>
+        </div>
+        <dl>
+          <div><dt>Werkgebied</dt><dd>{c.workArea}</dd></div>
+          <div><dt>E-mail</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd></div>
+          <div><dt>Telefoon</dt><dd><a href={`tel:${c.phone}`}>{c.phoneDisplay}</a></dd></div>
+          <div><dt>Bereikbaar</dt><dd>{c.hours}</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

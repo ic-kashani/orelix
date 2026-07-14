@@ -3,8 +3,29 @@ import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SolutionPage from "../components/SolutionPage.astro";
+
+const situations = [
+  { title: "Een aanvraag mist informatie", body: "De klant krijgt meteen een gerichte vraag om ontbrekende gegevens, foto's of documenten aan te vullen. Uw team hoeft daar niet telkens zelf achteraan." },
+  { title: "Een offerte blijft onbeantwoord", body: "Openstaande voorstellen blijven zichtbaar en kunnen op een afgesproken moment opnieuw onder de aandacht van uw medewerker komen." },
+  { title: "Aanvragen komen via meerdere kanalen", body: "E-mails en websitevragen worden op dezelfde manier geregistreerd, zodat opvolging niet afhankelijk is van één mailbox of persoon." },
+];
+const faq = [
+  { question: "Worden offertes automatisch verstuurd zonder controle?", answer: "Dat hoeft niet. We spreken samen af welke stappen automatisch mogen verlopen en waar een medewerker eerst controleert of goedkeurt." },
+  { question: "Moeten we een nieuw CRM gebruiken?", answer: "Niet noodzakelijk. Orelix vertrekt van uw bestaande mailbox, CRM, formulieren en afspraken. Alleen wanneer een andere tool echt meerwaarde heeft, bespreken we dat vooraf." },
+  { question: "Kan dit ook bij maatwerkoffertes?", answer: "Ja. Automatisatie hoeft de prijs of inhoud niet zelf te bepalen. Ze kan ook alleen gegevens verzamelen, een dossier voorbereiden en uw team herinneren aan de volgende stap." },
+  { question: "Hoe bepalen we of het rendeert?", answer: "Tijdens de analyse bekijken we hoeveel aanvragen binnenkomen, waar opvolging stilvalt en hoeveel manuele handelingen terugkomen. Pas daarna stellen we een concrete eerste automatisatie voor." },
+];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
 ---
-<Base title="Offerteopvolging automatiseren" description="Reageer sneller op offerteaanvragen en volg offertes consequent op. Orelix helpt Belgische kmo's minder kansen te missen.">
+<Base title="Offerteopvolging automatiseren" description="Reageer sneller op offerteaanvragen en volg offertes consequent op. Orelix helpt Belgische kmo's minder kansen te missen." structuredData={faqSchema}>
   <Header />
   <SolutionPage
     eyebrow="Offerteopvolging automatiseren"
@@ -18,6 +39,8 @@ import SolutionPage from "../components/SolutionPage.astro";
       { title: "Sneller voorbereiden", body: "We helpen terugkerende informatie, documenten en volgende stappen klaarzetten voor uw medewerkers." },
       { title: "Opvolgen op het juiste moment", body: "Uw team krijgt overzicht over openstaande offertes, zodat interessante kansen niet stilvallen." },
     ]}
+    situations={situations}
+    faq={faq}
     related={[{ href: "/e-mails-en-administratie-automatiseren", label: "E-mails en administratie automatiseren" }, { href: "/automatisatie-installatiebedrijven", label: "Automatisatie voor installatiebedrijven" }]}
   />
   <Footer />

@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import settings from "../content/settings.json";
+---
+<Base title="Privacybeleid" description="Lees hoe Orelix persoonsgegevens behandelt wanneer u de website gebruikt of contact opneemt.">
+  <Header />
+  <main id="main" class="legal-page">
+    <section class="info-hero info-hero--compact">
+      <div class="container info-hero-inner">
+        <span class="eyebrow eyebrow-light">Privacy</span>
+        <h1 class="display">Uw gegevens, duidelijk behandeld.</h1>
+        <p class="section-lead">Laatst bijgewerkt op 14 juli 2026.</p>
+      </div>
+    </section>
+    <section class="info-section">
+      <div class="container legal-copy">
+        <h2>Wie verwerkt uw gegevens?</h2>
+        <p>Orelix beheert deze website. Voor vragen over privacy kunt u contact opnemen via <a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a>.</p>
+
+        <h2>Welke gegevens verzamelen we?</h2>
+        <p>Wanneer u het contactformulier gebruikt, ontvangen we uw naam, e-mailadres, eventueel telefoonnummer en bedrijfsnaam, het gekozen onderwerp en uw bericht. We ontvangen daarnaast de technische gegevens die noodzakelijk zijn om de website veilig te laten functioneren en misbruik te voorkomen.</p>
+
+        <h2>Waarom gebruiken we die gegevens?</h2>
+        <p>We gebruiken uw gegevens om uw vraag te beantwoorden, een kennismaking of analyse te organiseren, onze communicatie met u op te volgen en de website veilig en betrouwbaar te houden. We gebruiken uw contactgegevens niet voor ongevraagde marketing.</p>
+
+        <h2>Met wie worden gegevens gedeeld?</h2>
+        <p>De website wordt via Cloudflare aangeboden. Berichten uit het contactformulier worden via Resend per e-mail bezorgd. Deze dienstverleners verwerken alleen de gegevens die nodig zijn om hun technische taak uit te voeren. We verkopen uw persoonsgegevens niet.</p>
+
+        <h2>Cookies en lokale opslag</h2>
+        <p>Orelix gebruikt momenteel geen advertentie- of analysecookies. De website bewaart alleen in uw browsersessie of de intro-animatie al werd getoond, zodat ze niet onnodig herhaald wordt.</p>
+
+        <h2>Hoe lang bewaren we gegevens?</h2>
+        <p>We bewaren contactgegevens niet langer dan nodig voor de behandeling en opvolging van uw aanvraag, tenzij een wettelijke verplichting of lopende samenwerking een langere bewaring vereist.</p>
+
+        <h2>Uw rechten</h2>
+        <p>U kunt vragen welke persoonsgegevens we over u bewaren en verzoeken om correctie, verwijdering, beperking of overdracht waar de toepasselijke wetgeving dat voorziet. Stuur uw verzoek naar <a href={`mailto:${settings.contact.email}`}>{settings.contact.email}</a>. U kunt ook een klacht indienen bij de Gegevensbeschermingsautoriteit.</p>
+
+        <h2>Wijzigingen</h2>
+        <p>Wanneer onze website of gegevensverwerking verandert, passen we dit privacybeleid aan en vermelden we hierboven de nieuwe datum.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

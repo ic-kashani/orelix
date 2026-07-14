@@ -4,7 +4,8 @@ import settings from "../content/settings.json";
 const w = settings.whatWeDo;
 const outcomes = ["Uren teruggewonnen", "Minder fouten", "Snellere opvolging"];
 const geo = w.geo;
-const proof = w.proof ?? [];
+type ProofItem = { value: string; label: string; detail: string };
+const proof = (w.proof ?? []) as ProofItem[];
 ---
 <section id="what-we-do" class="section what-we-do">
   <div class="container">
