@@ -23,13 +23,13 @@ const parseStat = (value: string) => {
     <div class="hero-orbit hero-orbit--outer"></div>
     <div class="hero-orbit hero-orbit--inner"></div>
     <div class="hero-core">
-      <span>AI</span>
-      <strong>Workforce</strong>
+      <span>Tijd</span>
+      <strong>bespaard</strong>
     </div>
-    <div class="hero-node hero-node--one">Reception</div>
-    <div class="hero-node hero-node--two">Sales</div>
-    <div class="hero-node hero-node--three">Admin</div>
-    <div class="hero-node hero-node--four">Support</div>
+    <div class="hero-node hero-node--one">E-mails</div>
+    <div class="hero-node hero-node--two">Offertes</div>
+    <div class="hero-node hero-node--three">Planning</div>
+    <div class="hero-node hero-node--four">Opvolging</div>
   </div>
 
   <div class="container hero-inner">
@@ -52,7 +52,7 @@ const parseStat = (value: string) => {
     </div>
 
     <div class="hero-bottom">
-      <div class="hero-stats" data-hero-stagger aria-label="Key highlights">
+      <div class="hero-stats" data-hero-stagger aria-label="Belangrijkste resultaten">
         {stats.map((s) => {
           const p = parseStat(s.value);
           return (
@@ -67,12 +67,12 @@ const parseStat = (value: string) => {
           );
         })}
       </div>
-      <div class="hero-live-panel" data-hero-stagger aria-label="AI workforce preview">
-        <span>Live deployment map</span>
-        <strong>5 AI roles ready to plug in</strong>
+      <div class="hero-live-panel" data-hero-stagger aria-label="Voorbeeld van automatisatie">
+        <span>Kmo quickscan</span>
+        <strong>5 processen om tijd te besparen</strong>
       </div>
     </div>
   </div>
 
-  <span class="hero-cue" data-hero-cue>Scroll</span>
+  <span class="hero-cue" data-hero-cue>Verder</span>
 </section>

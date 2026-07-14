@@ -1,11 +1,13 @@
 ---
-title: AI Office Assistant
+title: Minder administratie
 order: 3
 image: /uploads/services/ai-office-cinematic.png
-imageAlt: AI office assistant handling administration
+imageAlt: Administratie die automatisch geordend en voorbereid wordt
+bullets:
+  - Verwerkt inkomende e-mails
+  - Ordent documenten en aanvragen
+  - Maakt samenvattingen en takenlijsten
+  - Bereidt rapporten en interne opvolging voor
 ---
 
-- Processes emails
-- Organizes documents
-- Creates reports
-- Handles administrative work
+Laat terugkerende kantooradministratie automatisch voorbereiden, zodat medewerkers minder moeten kopieren, zoeken en herschrijven.

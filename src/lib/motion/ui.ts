@@ -9,7 +9,7 @@ export function showContactThanks(form: HTMLFormElement): void {
   const thanks = document.createElement("div");
   thanks.className = "form-thanks";
   thanks.innerHTML =
-    "<strong>Thank you — we received your message.</strong><br />We'll get back to you within one business day. Check your inbox for a confirmation email.";
+    "<strong>Bedankt, we hebben uw bericht ontvangen.</strong><br />We komen binnen een werkdag bij u terug. U ontvangt ook een bevestiging per e-mail.";
   form.parentNode.insertBefore(thanks, form);
   form.style.display = "none";
 
@@ -21,11 +21,9 @@ export function showContactThanks(form: HTMLFormElement): void {
 }
 
 export function initUI(): void {
-  // year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // mobile menu
   const menuToggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
   const navLinks = document.querySelector<HTMLElement>(".nav-links");
   if (menuToggle && navLinks) {
@@ -46,7 +44,6 @@ export function initUI(): void {
     });
   }
 
-  // header scroll state + auto-hide
   const header = document.querySelector<HTMLElement>(".site-header");
   if (header) {
     let lastY = 0;
@@ -65,7 +62,6 @@ export function initUI(): void {
     update(window.scrollY);
   }
 
-  // contact form success (legacy redirect)
   if (window.location.search.indexOf("sent=1") !== -1) {
     const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
     if (form) showContactThanks(form);

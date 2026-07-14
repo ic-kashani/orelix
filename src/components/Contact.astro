@@ -18,58 +18,58 @@ const phoneHref = c.phone?.replace(/\s+/g, "") ?? "";
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-status">
-            <span>Intake online</span>
-            <strong>Discovery queue open</strong>
+            <span>Analyse beschikbaar</span>
+            <strong>Uw administratie in kaart</strong>
           </div>
 
           <ul class="contact-list">
             {c.phoneDisplay && (
               <li>
-                <span class="ci-label">Phone</span>
+                <span class="ci-label">Telefoon</span>
                 <a href={`tel:${phoneHref}`} class="ci-value">{c.phoneDisplay}</a>
               </li>
             )}
             <li>
-              <span class="ci-label">Email</span>
+              <span class="ci-label">E-mail</span>
               <a href={`mailto:${c.email}`} class="ci-value">{c.email}</a>
             </li>
             {c.address && (
               <li>
-                <span class="ci-label">Address</span>
+                <span class="ci-label">Adres</span>
                 <span class="ci-value">{c.address}</span>
               </li>
             )}
             {c.workArea && (
               <li>
-                <span class="ci-label">Coverage</span>
+                <span class="ci-label">Regio</span>
                 <span class="ci-value">{c.workArea}</span>
               </li>
             )}
             {c.hours && (
               <li>
-                <span class="ci-label">Hours</span>
+                <span class="ci-label">Bereikbaar</span>
                 <span class="ci-value">{c.hours}</span>
               </li>
             )}
           </ul>
 
-          <div class="contact-kpis" aria-label="Discovery process highlights">
-            <span>24h reply window</span>
-            <span>Workflow audit</span>
-            <span>No generic demos</span>
+          <div class="contact-kpis" aria-label="Wat u mag verwachten">
+            <span>Antwoord binnen 1 werkdag</span>
+            <span>Administratie-audit</span>
+            <span>Geen standaardpakket</span>
           </div>
 
-          <div class="contact-socials" aria-label="Social media">
-            {settings.social.linkedin && (
-              <a href={settings.social.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+          <div class="contact-socials" aria-label="Sociale media">
+            {settings.socials.linkedin && (
+              <a href={settings.socials.linkedin} target="_blank" rel="noopener">LinkedIn</a>
             )}
           </div>
         </div>
 
         <div class="contact-panel" data-anim="reveal" data-delay="0.1">
           <div class="contact-panel-head">
-            <span>Start here</span>
-            <strong>Map your first AI employee</strong>
+            <span>Start hier</span>
+            <strong>Ontdek uw grootste tijdswinst</strong>
           </div>
           <ContactForm />
         </div>

@@ -6,7 +6,7 @@ export function initContactForm(): void {
 
   const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
   const errorEl = form.querySelector<HTMLElement>(".form-error");
-  const defaultLabel = submitBtn?.textContent ?? "Book a Discovery Call";
+  const defaultLabel = submitBtn?.textContent ?? "Plan een gratis analyse";
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ export function initContactForm(): void {
 
     errorEl?.setAttribute("hidden", "");
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
+    submitBtn.textContent = "Versturen...";
 
     const formData = new FormData(form);
     const payload = {
@@ -37,14 +37,14 @@ export function initContactForm(): void {
       const body = (await res.json().catch(() => ({}))) as { error?: string };
 
       if (!res.ok) {
-        throw new Error(body.error ?? "Something went wrong. Please try again.");
+        throw new Error(body.error ?? "Er ging iets mis. Probeer het opnieuw.");
       }
 
       showContactThanks(form);
     } catch (err) {
       if (errorEl) {
         errorEl.textContent =
-          err instanceof Error ? err.message : "Something went wrong. Please try again.";
+          err instanceof Error ? err.message : "Er ging iets mis. Probeer het opnieuw.";
         errorEl.removeAttribute("hidden");
       }
       submitBtn.disabled = false;

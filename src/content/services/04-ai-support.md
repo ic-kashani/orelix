@@ -1,11 +1,13 @@
 ---
-title: AI Customer Support
+title: Snellere klantenservice
 order: 4
 image: /uploads/services/ai-support-cinematic.png
-imageAlt: AI customer support agent
+imageAlt: Klantendienst die vragen sneller naar het juiste antwoord brengt
+bullets:
+  - Geeft klanten sneller antwoord
+  - Gebruikt uw eigen bedrijfsinformatie
+  - Stuurt complexe vragen naar de juiste persoon
+  - Houdt opvolging zichtbaar voor het team
 ---
 
-- Responds instantly
-- Uses your company knowledge
-- Escalates complex questions
-- Available around the clock
+Zorg dat klanten niet blijven wachten op eenvoudige informatie. Uw team behoudt controle, maar krijgt minder herhalende vragen handmatig te verwerken.
