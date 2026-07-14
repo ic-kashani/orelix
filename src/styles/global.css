@@ -3238,6 +3238,51 @@ a.ci-value:hover {
   box-shadow: 0 0 16px rgba(64, 224, 160, 0.46);
   transform: translateY(-50%);
 }
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
+}
+.proof-item {
+  min-height: 12rem;
+  padding: clamp(1rem, 2.6vw, 1.35rem);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(45, 212, 255, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(5, 13, 31, 0.7);
+}
+.proof-item strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.45rem, 5vw, 4.8rem);
+  line-height: 0.9;
+  font-weight: 500;
+  color: #fff;
+}
+.proof-item span {
+  display: block;
+  max-width: 16rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.proof-item p {
+  max-width: 22rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
 @keyframes workforce-scan {
   to {
     transform: translateX(100%);
@@ -3964,6 +4009,12 @@ a.ci-value:hover {
   .geo-panel h3 {
     max-width: 22ch;
   }
+  .proof-strip {
+    grid-template-columns: 1fr;
+  }
+  .proof-item {
+    min-height: auto;
+  }
   .process-flow {
     min-height: auto;
     padding: clamp(1.25rem, 4vw, 2rem);
@@ -4100,6 +4151,9 @@ a.ci-value:hover {
     min-height: auto;
     border-radius: 8px;
     white-space: normal;
+  }
+  .proof-item strong {
+    font-size: 3rem;
   }
   .process-flow {
     padding: 1rem;

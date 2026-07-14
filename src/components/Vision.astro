@@ -30,17 +30,17 @@ const manifestoRest = v.manifesto.slice(1);
           <div class="vision-orbit vision-orbit--outer"></div>
           <div class="vision-orbit vision-orbit--inner"></div>
           <div class="vision-core">
-            <span>AI</span>
-            <strong>Human-led</strong>
+            <span>Rust</span>
+            <strong>Voor uw team</strong>
           </div>
-          <span class="vision-signal vision-signal--one">Judgment</span>
-          <span class="vision-signal vision-signal--two">Automation</span>
-          <span class="vision-signal vision-signal--three">Growth</span>
+          <span class="vision-signal vision-signal--one">Overzicht</span>
+          <span class="vision-signal vision-signal--two">Opvolging</span>
+          <span class="vision-signal vision-signal--three">Tijdswinst</span>
         </div>
       </div>
 
       {manifestoLead && (
-        <div class="vision-manifesto" data-anim="reveal" aria-label="Our manifesto">
+        <div class="vision-manifesto" data-anim="reveal" aria-label="Onze visie">
           <p class="vision-line vision-line--lead">{manifestoLead}</p>
           <div class="vision-manifesto-stack">
             {manifestoRest.map((line) => (
@@ -64,7 +64,7 @@ const manifestoRest = v.manifesto.slice(1);
 
       {asPage && v.principles && (
         <div class="vision-principles" data-anim="reveal">
-          <h2 class="vision-principles-label">What we believe</h2>
+          <h2 class="vision-principles-label">Waar we voor staan</h2>
           <ul>
             {v.principles.map((item) => (
               <li>{item}</li>
@@ -81,7 +81,7 @@ const manifestoRest = v.manifesto.slice(1);
 
         {asPage && (
           <a href="/#contact" class="btn btn-primary btn-lg vision-cta">
-            Book a Discovery Call
+            Plan een gratis analyse
           </a>
         )}
       </div>

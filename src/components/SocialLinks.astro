@@ -9,12 +9,12 @@ interface Props {
 const { variant = "pills", label } = Astro.props;
 
 const channels = [
-  { id: "linkedin", label: "LinkedIn", mark: "in", href: settings.social.linkedin },
+  { id: "linkedin", label: "LinkedIn", mark: "in", href: settings.socials.linkedin },
 ].filter((c) => Boolean(c.href));
 ---
 
 {channels.length > 0 && (
-  <div class={`social-links social-links--${variant}`} aria-label="Social media">
+  <div class={`social-links social-links--${variant}`} aria-label="Sociale media">
     {label && <span class="social-links-label">{label}</span>}
     <div class="social-links-row">
       {channels.map((c) => (

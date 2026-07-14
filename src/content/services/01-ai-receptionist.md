@@ -1,11 +1,13 @@
 ---
-title: AI Receptionist
+title: Geen gemiste klantvragen
 order: 1
 image: /uploads/services/ai-receptionist-cinematic.png
-imageAlt: AI receptionist handling customer communication
+imageAlt: Kmo-team dat inkomende klantvragen sneller verwerkt
+bullets:
+  - Beantwoordt eerste vragen automatisch
+  - Verzamelt gegevens voor offertes
+  - Plant afspraken of vraagt beschikbaarheid op
+  - Stuurt dringende aanvragen meteen door
 ---
 
-- Answers customer questions
-- Books appointments
-- Collects information
-- Works 24/7
+Vang vragen via mail, formulier of website sneller op, ook wanneer uw team druk bezig is. Klanten krijgen sneller reactie en uw medewerkers starten met betere informatie.

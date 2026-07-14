@@ -2,8 +2,9 @@
 import settings from "../content/settings.json";
 
 const w = settings.whatWeDo;
-const outcomes = ["Time returned", "Costs reduced", "Growth unlocked"];
+const outcomes = ["Uren teruggewonnen", "Minder fouten", "Snellere opvolging"];
 const geo = w.geo;
+const proof = w.proof ?? [];
 ---
 <section id="what-we-do" class="section what-we-do">
   <div class="container">
@@ -57,8 +58,8 @@ const geo = w.geo;
         </svg>
 
         <div class="workforce-lane workforce-lane--input">
-          <span class="workforce-lane-label">Repetitive work</span>
-          <ul class="task-tags" aria-label="Repetitive tasks we automate">
+          <span class="workforce-lane-label">Terugkerend werk</span>
+          <ul class="task-tags" aria-label="Terugkerende taken die we automatiseren">
             {w.tasks.map((task, i) => (
               <li style={`--task-delay: ${(i * 0.12).toFixed(2)}s;`}>
                 <span>{task}</span>
@@ -71,13 +72,13 @@ const geo = w.geo;
           <span class="workforce-core-ring workforce-core-ring--outer"></span>
           <span class="workforce-core-ring workforce-core-ring--inner"></span>
           <span class="workforce-core-chip">AI</span>
-          <strong>Digital Employee</strong>
-          <small>routes, responds, reports</small>
+          <strong>Slimme hulp</strong>
+          <small>sorteert, volgt op, rapporteert</small>
         </div>
 
         <div class="workforce-lane workforce-lane--output">
-          <span class="workforce-lane-label">Business impact</span>
-          <ul class="impact-stack" aria-label="Business outcomes">
+          <span class="workforce-lane-label">Resultaat</span>
+          <ul class="impact-stack" aria-label="Zakelijke resultaten">
             {outcomes.map((outcome, i) => (
               <li style={`--impact-delay: ${(i * 0.16).toFixed(2)}s;`}>
                 <span class="impact-index">{String(i + 1).padStart(2, "0")}</span>
@@ -97,11 +98,23 @@ const geo = w.geo;
             <h3>{geo.title}</h3>
             <p>{geo.body}</p>
           </div>
-          <ul class="geo-tags" aria-label="AI search optimization focus areas">
+          <ul class="geo-tags" aria-label="Focuspunten voor AI-zoekvindbaarheid">
             {geo.items.map((item) => (
               <li>{item}</li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {proof.length > 0 && (
+        <div class="proof-strip" data-anim="reveal" aria-label="Voorbeelden en meetbare resultaten">
+          {proof.map((item) => (
+            <article class="proof-item">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+              <p>{item.detail}</p>
+            </article>
+          ))}
         </div>
       )}
     </div>
