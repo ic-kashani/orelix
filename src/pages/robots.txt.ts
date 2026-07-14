@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import settings from "../content/settings.json";
 
+export const prerender = true;
+
 const siteUrl = settings.site.url.replace(/\/$/, "");
 
 export const GET: APIRoute = () =>
