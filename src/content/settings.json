@@ -27,7 +27,7 @@
     "foundedYear": 2025
   },
   "contact": {
-    "email": "sina.kashani@orelix.be",
+    "email": "info@orelix.be",
     "phone": "+32476020443",
     "phoneDisplay": "+32 476 02 04 43",
     "address": "",
@@ -47,8 +47,8 @@
   },
   "forms": {
     "provider": "resend",
-    "recipientEmail": "sina.kashani@orelix.be",
-    "fromEmail": "Orelix <sina.kashani@orelix.be>"
+    "recipientEmail": "info@orelix.be",
+    "fromEmail": "Orelix <info@orelix.be>"
   },
   "seo": {
     "title": "Orelix | Minder administratie voor Belgische kmo's",
