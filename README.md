@@ -53,7 +53,7 @@ Submissions use [Resend](https://resend.com) via `/api/contact` on the Cloudflar
 4. Redeploy (push to GitHub triggers auto-deploy)
 
 Each submission sends:
-- Notification to **sina.kashani@orelix.be**
+- Notification to **info@orelix.be**
 - Auto-reply confirmation to the visitor
 
 **Local testing:** copy `.dev.vars.example` → `.dev.vars` and add your key, then `pnpm preview`.
